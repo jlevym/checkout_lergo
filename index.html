@@ -2,21 +2,21 @@
 <html ng-app='myApp'>
 <head>
 	<title></title>
-	<!-- Latest compiled and minified CSS bootstrap-->
+	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
 <body ng-controller = 'lessonController'>
 <div class="container">
 	<div class="row" >
-		<div class="col-md -8">
-			<!-- <h1 >{{name}}</h1> -->
-			<h1 ng-repeat='l in lessons'>
-			<div ng-show='l.language == "english"'>{{l.name}}</div> 
-			</h1>
+		<div ng-repeat= "l in lessons" ng-if= 'l.language =="english"'>
+			<div class="clearfix" ng-if="$index % 3 ==0"></div>
+			<div class='col-md-4 col-sm-6 col-xs-12'>
+			<div id="lessontitle">{{$index}}  {{l.name }} </div>
+			</div>
+		
 		</div>
 	</div>
-
 </div>
  
 
@@ -25,3 +25,5 @@
 <script src = 'factories.js' ></script>
 </body>
 </html>
+
+
