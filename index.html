@@ -8,8 +8,9 @@
 </head>
 <body ng-controller = 'lessonController'>
 <div class="container">
+	
 	<div class="row" >
-		<div ng-repeat= "l in lessons" ng-if= 'l.language =="english"'>
+		<div ng-repeat= "l in (filteredContent = (lessons | filter: {'language': 'english'}))">
 			<div class="clearfix" ng-if="$index % 3 ==0"></div>
 			<div class='col-md-4 col-sm-6 col-xs-12'>
 			<div id="lessontitle">{{$index}}  {{l.name }} </div>
@@ -26,4 +27,4 @@
 </body>
 </html>
 
-
+ng-repeat="item in (filteredContent = (content | filter:{'data':'category1'}))">

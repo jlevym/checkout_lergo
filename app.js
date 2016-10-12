@@ -4,4 +4,5 @@ myApp.controller('lessonController',['$scope', 'lessonCount', function($scope, $
 
 	$scope.name = 'jeffrey';
     $scope.lessons = fac.lessons;
+    $scope.language = 'english';
 }]);
