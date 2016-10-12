@@ -8,9 +8,9 @@
 </head>
 <body ng-controller = 'lessonController'>
 <div class="container">
-	
+	<label>language search: <input ng-model="searchText"></label>
 	<div class="row" >
-		<div ng-repeat= "l in (filteredContent = (lessons | filter: {'language': 'english'}))">
+		<div ng-repeat= "l in lessons  | filter: searchText"> 
 			<div class="clearfix" ng-if="$index % 3 ==0"></div>
 			<div class='col-md-4 col-sm-6 col-xs-12'>
 			<div id="lessontitle">{{$index}}  {{l.name }} </div>
@@ -26,5 +26,3 @@
 <script src = 'factories.js' ></script>
 </body>
 </html>
-
-ng-repeat="item in (filteredContent = (content | filter:{'data':'category1'}))">
