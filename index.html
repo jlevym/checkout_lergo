@@ -10,15 +10,18 @@
 <div class="container">
 	<div class="row" >
 		<div class="col-md -8">
-			<h1 >{{name}}</h1>
+			<!-- <h1 >{{name}}</h1> -->
+			<h1 ng-repeat='l in lessons'>
+			<div ng-show='l.language == "english"'>{{l.name}}</div> 
+			</h1>
 		</div>
 	</div>
 
 </div>
  
 
-<!-- ninified version of angular from the angular.org-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-<script type="text/javascript" src = 'app.js' ></script>
+<script src = 'app.js' ></script>
+<script src = 'factories.js' ></script>
 </body>
 </html>
