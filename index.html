@@ -8,12 +8,18 @@
 </head>
 <body ng-controller = 'lessonController'>
 <div class="container">
-	<label>language search: <input ng-model="searchText"></label>
+	<!-- <label style="padding: 60px">set language: <input ng-model="searchText"></label> -->
+	<label style="padding: 60px">general search: <input ng-model="search.$"></label>
 	<div class="row" >
-		<div ng-repeat= "l in lessons  | filter: searchText"> 
+	
+<p>Number of visible lessons: {{(lessons|filter:search).length}}</p>
+<p>Total number of lessons: {{lessons.length}}</p>
+
+		<!-- <div ng-repeat= "l in lessons  | filter: searchText">  -->
+		<div ng-repeat= "lessonObj in lessons  | filter: search"> 
 			<div class="clearfix" ng-if="$index % 3 ==0"></div>
 			<div class='col-md-4 col-sm-6 col-xs-12'>
-			<div id="lessontitle">{{$index}}  {{l.name }} </div>
+			<div id="lessontitle">{{$index}}  {{lessonObj.name }} </div>
 			</div>
 		
 		</div>
