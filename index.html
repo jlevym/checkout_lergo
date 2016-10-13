@@ -7,13 +7,13 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
-<body ng-controller = 'lessonController'>
+<body ng-cloak ng-controller = 'lessonController'>
 <div class="container">
 	<!-- <label style="padding: 60px">set language: <input ng-model="searchText"></label> -->
 	<label style="padding: 60px">set language: <input ng-model="search.language "></label>
 	<label style="padding: 60px">general search: <input ng-model="search.$"></label>
 	<div class="row" >
-<h1>Number of lessons with at least 2 questions: {{goodlessons}}</h1>
+<h1>Number of lessons [2 questions or more ]: {{goodlessons}}</h1>
 <p>Number of visible lessons: {{(lessons|filter:search).length}}</p>
 <p>Total number of lessons: {{lessons.length}}</p>
 

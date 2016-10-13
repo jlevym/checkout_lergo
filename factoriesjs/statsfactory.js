@@ -1,6 +1,8 @@
 myApp.factory('allStats', function(lergoData) {
 	stats = {};
 
+	"use strict";
+
 stats.lessons = fac.lessons;
 
 // FOR LERGO - RETURN VALUE TRUE IF MORE THAN 2 QUESTIONS. 
@@ -27,13 +29,13 @@ var countItems = function(lesson){
 // by calling the countItems function 
 var countLessons = function(){
     for (docs in stats.lessons) {
-        if(countItems(lesson[docs])){
+        if(countItems(stats.lessons[docs])){
             lessonWithTwoQuestions += 1;
         }
     } return lessonWithTwoQuestions ;
 }
 
 
-	status.countLessons = countLessons;
-	return status;
+	stats.countLessons = countLessons();
+	return stats;
 })
