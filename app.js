@@ -1,9 +1,20 @@
-var myApp = angular.module('myApp',['infinite-scroll']);
+var myApp = angular.module('myApp',['ngRoute','infinite-scroll']);
 
-myApp.controller('lessonController',['$scope', 'lergoData', 'allStats',  function($scope, lergoData, allStats ) {
 
-	$scope.name = 'jeffrey';
-    $scope.lessons = fac.lessons;
-    $scope.goodlessons = stats.countLessons;
 
-}]);
+myApp.config(function($routeProvider) {
+  $routeProvider
+  .when("/", {
+    templateUrl : "views/main.html",
+    controller: "lessonController"
+  })
+  .when("/red", {
+    templateUrl : "red.htm"
+  })
+  .when("/green", {
+    templateUrl : "green.htm"
+  })
+  .when("/blue", {
+    templateUrl : "blue.htm"
+  });
+});

@@ -1,7 +1,7 @@
  #lessontitle {
  	color: white;
  	font-size: 20px;
-	height: 200px; 
+	height: 150px; 
 	padding-left: 80px;
 	padding-top: 40px;
 	position: relative;
@@ -12,5 +12,5 @@
 
 #lessonborder {
 	border: solid white;
-	height: 240px;
+	height: 180px;
 }

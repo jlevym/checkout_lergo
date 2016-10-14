@@ -8,33 +8,28 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
-	<body class ='ng-cloak' ng-controller = 'lessonController'>
+	<body class ='ng-cloak'ng-controller = 'lessonController'>
+	
 		<div class="container">
-			<!-- <label style="padding: 60px">set language: <input ng-model="searchText"></label> -->
-			<label style="padding: 60px">set language: <input ng-model="search.language "></label>
-			<label style="padding: 60px">general search: <input ng-model="search.$"></label>
+			<label style="padding-top: 30px">set language: <input ng-model="search.language "></label>
+			<label style="padding-top: 30px; padding-left: 30px">general search: <input ng-model="search.$"></label>
 			<div class="row" >
-				<h1 class='ng-cloak'>Number of lessons [2 questions or more ]: {{goodlessons}}</h1>
+				<h3 class='ng-cloak'>Number of lessons [2 questions or more ]: {{goodlessons}}</h3>
 				<p>Number of visible lessons: {{(lessons|filter:search).length}}</p>
 				<p>Total number of lessons: {{lessons.length}}</p>
-				<!-- <div infinite-scroll="myPagingFunction()" infinite-scroll-distance="3"> -->
 
-				<div ng-repeat= "lessonObj in lessons  | filter: search | limitTo:21"> 
-					<div class='col-md-4 col-sm-6 col-xs-12'>
-						<div id="lessonborder">
-							<div id="lessontitle" >{{$index}}  {{lessonObj.name }}<br>
-								<a href="http://localhost:9000/#!/public/homepage?lergoLanguage=en&lergoFilter.filterLanguage=%22english%22" target="_blank"><i class="fa fa-file-video-o">localhost</i></a>
-							</div>
-						</div>	
-					</div>
-				</div>
+				<div ng-view></div>
+				
 			</div>
 		</div>
+
 		 
 		<script src ="jquery-3.1.1.js"></script>
 		<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js" ></script>
 		<script src ='ng-infinite-scroll.min.js'></script>
 		<script src ='app.js' ></script>
+		<script src ='controllersjs/lessonController.js' ></script>
 		<script src ='factoriesjs/datafactory.js' ></script>
 		<script src ='factoriesjs/statsfactory.js' ></script>
 
