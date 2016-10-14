@@ -1,6 +1,6 @@
-var myApp = angular.module('myApp',[]);
+var myApp = angular.module('myApp',['infinite-scroll']);
 
-myApp.controller('lessonController',['$scope', 'lergoData', 'allStats', function($scope, lergoData, allStats ) {
+myApp.controller('lessonController',['$scope', 'lergoData', 'allStats',  function($scope, lergoData, allStats ) {
 
 	$scope.name = 'jeffrey';
     $scope.lessons = fac.lessons;

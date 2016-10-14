@@ -1,6 +1,16 @@
-#lessontitle {
-	height: 100px; 
-	border-style: solid; 
-	border-color: #6f9eb6;
-	padding: 10px;
+ #lessontitle {
+ 	color: white;
+ 	font-size: 20px;
+	height: 200px; 
+	padding-left: 80px;
+	padding-top: 40px;
+	position: relative;
+	border: solid black;
+	background-image: url("images/smart-board.jpg");
+
+}
+
+#lessonborder {
+	border: solid white;
+	height: 240px;
 }
