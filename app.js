@@ -8,4 +8,7 @@ myApp.config(function($routeProvider) {
     templateUrl : "views/nav.html",
     controller: "lessonController"
   })
+  .when("/it", {
+    templateUrl : "views/it.html"
+  })
 });

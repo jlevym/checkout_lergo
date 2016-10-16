@@ -1,55 +1,21 @@
-<!-- this shows the general idea, but is not at all the correct way to start -->
-
-<!-- <div ng-repeat= "lessonObj in lessons  | filter: search | limitTo: 21 "> 
-	<div class='col-md-4 col-sm-6 col-xs-12'>
-		<div id="lessonborder">
-			<div id="lessontitle" >{{$index}}  {{lessonObj.name }}<br>
-				<a style="color: white" href="http://localhost:9000/#!/public/homepage?lergoLanguage=en&lergoFilter.filterLanguage=%22english%22" target="_blank"><i class="fa fa-file-video-o">localhost</i></a>
-			</div>
-		</div>	
-	</div>
-</div> -->
-
 
 <!-- need to implement responsive design. try bootstrap media object -->
 
 	<div ng-repeat= "lessonObj in lessons  | filter: search | limitTo: 9 "> 
 		<div class='col-md-4 col-sm-6 col-xs-12'>
-			<div class="media" style="background-color:grey; min-height: 250px; padding: 20px">
+			<div class="media" style="background-color:cyan; min-height: 300px; padding: 20px">
 			  <div class="media-left media-top">
 			    <a href="http://localhost:9000/#!/public/homepage?lergoLanguage=en&lergoFilter.filterLanguage=%22english%22 " target="_blank">
 			      <img class="media-object" src="images/Optimized-owl2.jpg" alt="..."  </p> 
 			    </a>
+			     <div style="font-size: 10px">{{lessonObj._id}}</div>
 			  </div>
 			  <div class="media-body">
-			  		<div class="media-heading"> <p> {{$index}}  <b style="color: blue" >{{lessonObj.name | limitTo: 50}}</b><br><span style="color: white">{{lessonObj.description | limitTo: 150}}</span> </p> </div>
+			  		<div class="media-heading"> <p> {{$index}}  <b style="color: blue" >{{lessonObj.name | limitTo: 50}}</b><br><span style="color: black">{{lessonObj.description | limitTo: 150}}</span> </p></div>
 			  </div>
 			</div>
-			<div style="height: 20px"></div>
+			<div style="height: 30px"></div>  <!-- to seperate between the rows -->
 		</div>	
 	</div>
 
 
-
-
-<!-- <div ng-repeat= "lessonObj in lessons  | filter: search | limitTo: 6 "> 
-		<div class='col-md-4 col-sm-6 col-xs-12'>
-	<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="images/Optimized-smart-board3.jpg"></iframe>
-</div>
-</div>
-</div>
-
-<p>this is the end of the 16 X 9 embedded media</p>
-<!4:3 aspect ratio -->
-<!-- <div ng-repeat= "lessonObj in lessons  | filter: search | limitTo: 6 "> 
-		<div class='col-md-4 col-sm-6 col-xs-12'>
-			<div class="embed-responsive embed-responsive-4by3">
-			  <iframe style="border:2px solid grey; class="embed-responsive-item" src="http://realstaging.lergodev.info/index.html#!/public/lessons/57f90e96776b937350460edf/intro">
-			  	<p>{{lessonObj.name}}</p>
-			  </iframe>
-			 <p></p>
-			</div>
-	</div>
-</div> -->
- 

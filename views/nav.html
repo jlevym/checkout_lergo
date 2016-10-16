@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Lergo logo</a>
+      <a class="navbar-brand" href="#/">Lergo logo</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,7 +39,7 @@
       
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><a href="#it">lergo.it</a></li>
         <li class="dropdown">
           <a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -54,37 +54,15 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<!-- <nav class="navbar navbar-light bg-faded">
-  <a class="navbar-brand" href="#">Lergo Logo</a>
-  <ul class="nav navbar-nav">
-    <li class="nav-item active">
-      <a class="nav-link" href="#">Learn </span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Create</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Parents</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Teachers</a>
-    </li>
-     <li class="nav-item">
-      <a class="nav-link" href="#">About us</a>
-    </li>
-  </ul>
-  <form class="form-inline pull-xs-right">
-    <input class="form-control" type="text" placeholder="set language" ng-model="search.language" >
-    <input class="form-control" type="text" placeholder="general search" ng-model="search.$" >
-  </form>  
-</nav> -->
 
  <!--  shows the statistics -->
- <div class="row" >
+ <!-- move statistics to a custom directive statsData -->
+ <!-- <div class="row" >
     <h3 class='ng-cloak'>Number of lessons [2 questions or more ]: {{goodlessons}}</h3>
     <p>Number of visible lessons: {{(lessons|filter:search).length}}</p>
     <p>Total number of lessons: {{lessons.length}}</p>
- </div>
+ </div> -->
+ <stats-data></stats-data>
 
   <!-- shows the lessons with ng-repeat and filtered -->
   <div ng-include="'views/main.html'"></div>
