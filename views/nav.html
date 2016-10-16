@@ -1,0 +1,91 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Lergo logo</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Create <span class="sr-only">(current)</span></a></li>
+        <li><a href="http://localhost:9000/#!/public/homepage?lergoLanguage=en&lergoFilter.filterLanguage=%22english%22" target="_blank">Lergo.org</a></li>
+        <li class="dropdown">
+          <a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log in<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Log in</a></li>
+            <li><a href="#">Sign-up</a></li>
+            <li><a href="#">Something else here</a></li>
+           <!--  <li role="separator" class="divider"></li>
+            <li><a href="#">Teachers</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Parents</a></li> -->
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="language" ng-model="search.language">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" ng-model="search.$">
+        </div>
+      
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Parents</a></li>
+            <li><a href="#">Teachers</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!-- <nav class="navbar navbar-light bg-faded">
+  <a class="navbar-brand" href="#">Lergo Logo</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Learn </span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Create</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Parents</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Teachers</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="#">About us</a>
+    </li>
+  </ul>
+  <form class="form-inline pull-xs-right">
+    <input class="form-control" type="text" placeholder="set language" ng-model="search.language" >
+    <input class="form-control" type="text" placeholder="general search" ng-model="search.$" >
+  </form>  
+</nav> -->
+
+ <!--  shows the statistics -->
+ <div class="row" >
+    <h3 class='ng-cloak'>Number of lessons [2 questions or more ]: {{goodlessons}}</h3>
+    <p>Number of visible lessons: {{(lessons|filter:search).length}}</p>
+    <p>Total number of lessons: {{lessons.length}}</p>
+ </div>
+
+  <!-- shows the lessons with ng-repeat and filtered -->
+  <div ng-include="'views/main.html'"></div>
+    
