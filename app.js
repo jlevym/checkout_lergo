@@ -8,13 +8,4 @@ myApp.config(function($routeProvider) {
     templateUrl : "views/main.html",
     controller: "lessonController"
   })
-  .when("/red", {
-    templateUrl : "red.htm"
-  })
-  .when("/green", {
-    templateUrl : "green.htm"
-  })
-  .when("/blue", {
-    templateUrl : "blue.htm"
-  });
 });

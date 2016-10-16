@@ -1,5 +1,6 @@
 myApp.factory('allStats', function(lergoData) {
 	stats = {};
+	// uses the database in fac
 
 	"use strict";
 
