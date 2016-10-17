@@ -3,7 +3,7 @@ myApp.controller('lessonController',['$scope', 'lergoData', 'allStats',  functio
 	
     $scope.lessons = fac.lessons;
     $scope.goodlessons = stats.countLessons;
-
+    $scope.flag = 'show in landing page';
 
 
 }]);

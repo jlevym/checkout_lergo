@@ -5,10 +5,13 @@
 		
 			<div class="media" style="background-color:cyan; min-height: 300px; padding: 20px">
 			  <div class="media-left media-top">
-			    <a href= '#/one/{{lessonObj._id}}'>
+			 <!--  the flag below is to show the href when showing all the lessons. flag is defined in lessonController -->
+			    <a ng-if = 'flag' ng-href=' #/one/{{lessonObj._id}}' <p>
 			      <img class="media-object" src="images/Optimized-owl2.jpg" alt="..."  </p> 
 			    </a>
-			     <div style="font-size: 10px">{{lessonObj._id}}</div>
+			    <a ng-if = '!flag' ng-href=' #/play' <p> 
+			      <img class="media-object" src="images/Optimized-owl2.jpg" alt="..."  </p> 
+			    </a>
 			  </div>
 			  <div class="media-body">
 			  		<div class="media-heading"> <p> {{$index}}  <b style="color: blue" >{{lessonObj.name | limitTo: 50}}</b><br><span style="color: black">{{lessonObj.description | limitTo: 150}}</span> </p></div>
