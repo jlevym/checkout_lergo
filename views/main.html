@@ -1,11 +1,10 @@
 
-<!-- need to implement responsive design. try bootstrap media object -->
-
-	<div ng-repeat= "lessonObj in lessons  | filter: search | limitTo: 9 "> 
-		<div class='col-md-4 col-sm-6 col-xs-12'>
+<!-- called by ng-include sitting in nav.html-->
+	
+		
 			<div class="media" style="background-color:cyan; min-height: 300px; padding: 20px">
 			  <div class="media-left media-top">
-			    <a href="http://localhost:9000/#!/public/homepage?lergoLanguage=en&lergoFilter.filterLanguage=%22english%22 " target="_blank">
+			    <a href= '#/one/{{lessonObj._id}}'>
 			      <img class="media-object" src="images/Optimized-owl2.jpg" alt="..."  </p> 
 			    </a>
 			     <div style="font-size: 10px">{{lessonObj._id}}</div>
@@ -15,7 +14,6 @@
 			  </div>
 			</div>
 			<div style="height: 30px"></div>  <!-- to seperate between the rows -->
-		</div>	
-	</div>
+		
 
 

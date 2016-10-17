@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default"> <!--  nav.html controller is lessoncontroller -->
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -22,10 +22,6 @@
             <li><a href="#">Log in</a></li>
             <li><a href="#">Sign-up</a></li>
             <li><a href="#">Something else here</a></li>
-           <!--  <li role="separator" class="divider"></li>
-            <li><a href="#">Teachers</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Parents</a></li> -->
           </ul>
         </li>
       </ul>
@@ -40,6 +36,7 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#it">lergo.it</a></li>
+        <li><a href="#one">play lesson</a></li>
         <li class="dropdown">
           <a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -55,15 +52,13 @@
   </div><!-- /.container-fluid -->
 </nav>
 
- <!--  shows the statistics -->
- <!-- move statistics to a custom directive statsData -->
- <!-- <div class="row" >
-    <h3 class='ng-cloak'>Number of lessons [2 questions or more ]: {{goodlessons}}</h3>
-    <p>Number of visible lessons: {{(lessons|filter:search).length}}</p>
-    <p>Total number of lessons: {{lessons.length}}</p>
- </div> -->
- <stats-data></stats-data>
+<!--  custom directive for stats
+ --> <stats-data></stats-data>
 
   <!-- shows the lessons with ng-repeat and filtered -->
-  <div ng-include="'views/main.html'"></div>
+  <div ng-repeat= "lessonObj in lessons  | filter: search | limitTo: 9 ">
+    <div class='col-md-4 col-sm-6 col-xs-12'> 
+      <div ng-include="'views/main.html'"></div>
+    </div>
+  </div>
     
