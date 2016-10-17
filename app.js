@@ -16,7 +16,7 @@ myApp.config(function($routeProvider) {
   	templateUrl: "views/onelesson.html",
   	controller: "oneLessonController"
   })
-   .when("/play", {
+   .when("/play/:id", {
   	templateUrl: "views/playlesson.html",
   	contoller: "playLessonController"
   	

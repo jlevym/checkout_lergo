@@ -1,6 +1,6 @@
 myApp.factory('allStats', function(lergoData) {
 	stats = {};
-	// uses the database in fac
+	// uses the database in fac to get the statistics of how many lessons have 2 questions
 
 	"use strict";
 
