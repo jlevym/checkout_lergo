@@ -13,7 +13,7 @@ myApp.factory('lessonFactory', function(lergoData) {
     			thislesson1 = lessons[i];
     			return thislesson1;
     		}
-    	}
+    	}  
     	
     }
 		thislesson = alesson;

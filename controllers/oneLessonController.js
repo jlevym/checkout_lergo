@@ -19,7 +19,6 @@ myApp.controller('oneLessonController', ['$scope', '$routeParams','lergoData', '
 
     var id = $routeParams.id;
     var thislesson = alesson(id)
-    console.log(thislesson);
 
     //$scope.lessonObj = a(); // to use the same code for landing page as for individual lesson
     $scope.lessonObj = thislesson;
