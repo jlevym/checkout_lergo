@@ -8,10 +8,10 @@ myApp.factory('questionFactory', function(lergoQuestions) {
     var questions = qfac.questions;
  
  		// aquestion is called by oneQuestionController, which passes in the id of the chosen question
-        // oneQuestionController has not been made yet
+        
     	aquestion = function (thisquestionid) { 
     	for(var i= 0; i< questions.length; i++) {
-    		if(questions[i]._id == thisquestionid) {
+    		if(questions[i]._id == thisquestionid) { // does not work with "" around id
     			thisquestion1 = questions[i];
     			return thisquestion1;
     		}

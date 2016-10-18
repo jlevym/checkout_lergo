@@ -56,7 +56,7 @@
  --> <stats-data></stats-data>
 
   <!-- shows the lessons with ng-repeat and filtered using ng-include for the actual lessons-->
-  <div ng-repeat= "lessonObj in lessons  | filter: search | limitTo: 9 ">
+  <div ng-repeat= "lessonObj in lessons  | filter: search | limitTo: 99 ">
     <div class='col-md-4 col-sm-6 col-xs-12'> 
       <div ng-include="'views/main.html'"></div> <!-- this is the individual lesson -->
     </div>

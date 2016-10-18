@@ -3,10 +3,14 @@
 myApp.controller('oneLessonController', ['$scope', '$routeParams','lergoData', 'lessonFactory', function($scope, $routeParams, lergoData, lessonFactory  ) {
 
     var id = $routeParams.id;
-    var thislesson = alesson(id);
+    var thislesson = alesson(id); // this sends the request for one lesson from lessonfactory
 
     $scope.name = 'jeffrey';
     $scope.lessonObj = thislesson;
+
+
+
+    
 }]);
 
 

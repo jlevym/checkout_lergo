@@ -2,7 +2,18 @@
 <!-- start by showing the questions of the lesson -->
 
 <p>play lesson starting here</p> <!-- playLessonController -->
-<a href="#/">home</a>
+<a href="#/">home</a> <br>
 
 
-<div ng-repeat="question in questions | limitTo: 20"> {{question._id }}</div>
+
+<p>this lesson id is: {{thislessonid}}</p>
+
+{{thislesson.name}}
+
+<div ng-repeat = "step in thislesson.steps">
+	steps: {{$index}}.  number of questions: {{step.quizItems.length}} 
+</div>
+
+one of the questions: {{question1.question}}
+
+
