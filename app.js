@@ -6,21 +6,21 @@ myApp.config(function($routeProvider) {
   $routeProvider
   .when("/", {
     templateUrl : "views/nav.html",
-    controller: "lessonController"
+    controller: "alllessonController"
   })
-  /*.when("/one", {
-  	templateUrl: "views/onelesson.html",
-  	controller: "oneLessonController"
-  })*/
+  .when("/play/:id", {
+  	templateUrl: "views/playlesson.html",
+  	controller: "playLessonController"
+  })
    .when("/one/:id", {
   	templateUrl: "views/onelesson.html",
   	controller: "oneLessonController"
   })
-   .when("/play/:id", {
+   /*.when("/play/:id", {
   	templateUrl: "views/playlesson.html",
   	contoller: "playLessonController"
   	
-  })
+  })*/
   .when("/it", {
     templateUrl : "views/it.html"
   })

@@ -1,4 +1,4 @@
-myApp.controller('lessonController',['$scope', 'lergoData', 'allStats',  function($scope, lergoData, allStats ) {
+myApp.controller('alllessonController',['$scope', 'lergoData', 'allStats',  function($scope, lergoData, allStats ) {
 
 	
     $scope.lessons = fac.lessons;
