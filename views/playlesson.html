@@ -1,19 +1,22 @@
 <!-- this landing page comes from onelesson.html ==> main.html-->
 <!-- start by showing the questions of the lesson -->
+<!-- put a ng-include on this page to show the first , most simple question : true / false -->
 
-<p>play lesson starting here</p> <!-- playLessonController -->
+<!-- <p>play lesson starting here</p> --> <!-- playController.js/playLessonController -->
 <a href="#/">home</a> <br>
 
 
 
-<p>this lesson id is: {{thislessonid}}</p>
+<!-- <p>a lesson id is: {{thislessonid}}</p>
 
-{{thislesson.name}}
+with the name of: {{thislesson.name}}
 
 <div ng-repeat = "step in thislesson.steps">
 	steps: {{$index}}.  number of questions: {{step.quizItems.length}} 
 </div>
 
-one of the questions: {{question1.question}}
+a question : {{question1.question}} -->
+
+<div ng-include = '"views/truefalsequestion.html"'></div>
 
 

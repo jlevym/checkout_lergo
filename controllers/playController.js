@@ -22,6 +22,13 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
     $scope.name = 'jeffrey';
     $scope.question1 = thisquestion;
     console.log(thisquestion); 
+
+    // what we really need to do is find all the steps and questions from the lesson above and start 
+    // building the ui for a question
+
+    console.log(Object.keys($scope.thislesson));
+    console.log(Object.keys($scope.thislesson.steps));
+    console.log(Object.keys($scope.question1));
     
 
 }]);
