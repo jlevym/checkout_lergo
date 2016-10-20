@@ -4,27 +4,37 @@
 <div class="container">
 	<div class="panel panel-default push-left: 20px">
 		<div class="row">
-			
+			  
+
+		<div class="col-xs-12 " style="text-align: center">
+  <h1 class="visible-xs">This text is shown only on an EXTRA SMALL screen.</h1>
+  <h1 class="visible-sm">This text is shown only on a SMALL screen.</h1>
+  <h1 class="visible-md">This text is shown only on a MEDIUM screen.</h1>
+  <h1 class="visible-lg">This text is shown only on a LARGE screen.</h1>
+		</div>
+
+
 			<div class="col-xs-10 col-xs-offset-3">
 				<h2>{{question1.question}}</h2>
 			</div>
 
 		</div>
-	  <form>
+	  <form >
 	    <fieldset class="form-group ">
 	      <!-- <legend style="font-size: 50px" class="col-form-legend col-sm-2"></legend> -->
 	      <div class="row">
 	      
 	      <div class="col-xs-10 col-xs-offset-3"> 
+
 	        <div class="form-check">
 	          <label class="form-check-label">
-	            <input class="form-check-input" type="radio" ng-model="option.name" id="gridRadios1" value="option1">
+	            <input  class="form-check-input"  type="radio" ng-model="option" id="gridRadios1" value="option1" ng-change='newValue(option)'ng-disabled="isDisabled" >
 	             True 
 	          </label>
 	        </div>
 	        <div class="form-check">
 	          <label class="form-check-label">
-	            <input class="form-check-input" type="radio" ng-model="option.name" id="gridRadios2" value="option2">
+	            <input class="form-check-input"  type="radio" ng-model="option" id="gridRadios2" value="option2" ng-change='newValue(option)' ng-disabled="isDisabled">
 	           False
 	          </label>
 	        </div>
@@ -32,6 +42,10 @@
 	      </div>
 	    </fieldset>
 	  </form>
-	  {{option.name}}
+		  <div class='row'>
+		  <div class= "col-xs-10 col-xs-offset-1 " >
+		  <h1 style="border-style: solid; background: #42d7f4; border-width: 2px; border-color: blue ; text-align: center"  >{{result}}</h1>
+		  </div>
+		  </div>
 	</div>
 </div>

@@ -1,16 +1,6 @@
- #lessontitle {
- 	color: white;
- 	font-size: 20px;
-	height: 150px; 
-	padding-left: 80px;
-	padding-top: 40px;
-	position: relative;
-	border: solid black;
-	background-image: url("images/smart-board.jpg");
 
-}
 
-#lessonborder {
-	border: solid white;
-	height: 180px;
+.panel { /*makes all the bootstrap panels this color*/
+	background-color: #89b1bc;
+
 }

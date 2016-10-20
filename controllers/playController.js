@@ -19,21 +19,27 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	var id = '536a8c9bd3be723956c85634'; /*$routeParams.id;*/
     var thisquestion = aquestion(id); // this sends the request for one lesson from questionFactory
 
-    $scope.name = 'jeffrey';
     $scope.question1 = thisquestion;
     console.log(thisquestion); 
 
     // what we really need to do is find all the steps and questions from the lesson above and start 
     // building the ui for a question
 
-    console.log(Object.keys($scope.thislesson));
-    console.log(Object.keys($scope.thislesson.steps));
-    console.log(Object.keys($scope.question1));
-
     // extracting the value of the clicked radio button
-    $scope.option = {};
 
+    	$scope.isDisabled = false;
+    	$scope.result = 'please choose an answer';
 
-    
+	    $scope.option = 'option3'; 
+	   $scope.newValue = function(value) {
+	   	$scope.isDisabled = true;
+	   	if(value=='option1'){
+	   		$scope.result = 'sorry, that is incorrect';
+     		console.log(value);
+	   	}else{
+	   		$scope.result = 'good job';
+	   	}
+}
 
 }]);
+
