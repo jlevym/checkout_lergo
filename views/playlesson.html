@@ -1,11 +1,15 @@
 <!-- this landing page comes from onelesson.html ==> main.html-->
-<!-- start by showing the questions of the lesson -->
+<!--  showing the questions of the lesson -->
 <!-- put a ng-include on this page to show the first , most simple question : true / false -->
 
 <!-- <p>play lesson starting here</p> --> <!-- playController.js/playLessonController -->
 <a href="#/">home</a> <br>
 
 
+
+
+
+<div ng-include = '"views/truefalsequestion.html"'></div>
 
 <!-- <p>a lesson id is: {{thislessonid}}</p>
 
@@ -15,8 +19,6 @@ with the name of: {{thislesson.name}}
 	steps: {{$index}}.  number of questions: {{step.quizItems.length}} 
 </div>
 
-a question : {{question1.question}} -->
+a question : {{question1.question}}
 
-<div ng-include = '"views/truefalsequestion.html"'></div>
-
-
+ -->

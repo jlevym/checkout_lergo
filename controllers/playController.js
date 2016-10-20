@@ -10,26 +10,69 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 
    	var id = $routeParams.id;
 	$scope.thislesson = alesson(id); // this sends the request for one lesson from lessonFactory
+	console.log( 'this lesson from playconroller.js');
 	console.log($scope.thislesson);	 // prints out the lesson in the console. 
 
-    
-	// lets also get an example question from a given id. I think we are supposed to do this in 
+    // this looks for all the questions in a lesson
+	var thislesson = $scope.thislesson;
+	var steps = thislesson.steps;
+	var questions = []; // this is an array to keep all the steps / questions
+	var questionsarray = {};
+	var countlessons = function () {
+		for (step in steps) {
+				if(steps[step].quizItems) {
+					for (quizItem in steps[step].quizItems){
+						console.log(steps[step].quizItems[quizItem]);
+						questions.push( steps[step].quizItems[quizItem] );
+						questionsarray[quizItem]= steps[step].quizItems[quizItem]; 
+
+
+					}
+			}else {
+				console.log('no quizItems in this step');
+			}
+		}
+		console.log(questions);
+		console.log(questionsarray);
+	}
+
+	countlessons();
+
+
+
+
+
+
+
+
+
+	// lets also get an example question from a given id. maybe this is  supposed to be moved to 
 	//questionController.js
 
 	var id = '536a8c9bd3be723956c85634'; /*$routeParams.id;*/
     var thisquestion = aquestion(id); // this sends the request for one lesson from questionFactory
 
     $scope.question1 = thisquestion;
+    console.log( 'this question from playconroller.js');
     console.log(thisquestion); 
+
+
+
+
+
+
+
 
     // what we really need to do is find all the steps and questions from the lesson above and start 
     // building the ui for a question
 
     // extracting the value of the clicked radio button
 
+    	// prevent answering the lesson twice
     	$scope.isDisabled = false;
     	$scope.result = 'please choose an answer';
 
+    	/*checks the values of the radio button and answer if true / false*/
 	    $scope.option = 'option3'; 
 	   $scope.newValue = function(value) {
 	   	$scope.isDisabled = true;
