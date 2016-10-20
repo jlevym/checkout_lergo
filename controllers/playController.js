@@ -13,30 +13,24 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	console.log( 'this lesson from playconroller.js');
 	console.log($scope.thislesson);	 // prints out the lesson in the console. 
 
-    // this looks for all the questions in a lesson
+    // this looks for all the questions in a lesson step given by the countlessons(lessonstep) below;
 	var thislesson = $scope.thislesson;
 	var steps = thislesson.steps;
 	var questions = []; // this is an array to keep all the steps / questions
 	var questionsarray = {};
-	var countlessons = function () {
-		for (step in steps) {
+	var questionsobject ={};
+	var countlessons = function (step) { /*we pass in the step number we want*/
 				if(steps[step].quizItems) {
 					for (quizItem in steps[step].quizItems){
-						console.log(steps[step].quizItems[quizItem]);
-						questions.push( steps[step].quizItems[quizItem] );
-						questionsarray[quizItem]= steps[step].quizItems[quizItem]; 
-
-
+						questions.push( steps[step].quizItems[quizItem] ); // this pushes to array
 					}
 			}else {
-				console.log('no quizItems in this step');
+				return 'no quizItems in this step';
 			}
-		}
-		console.log(questions);
-		console.log(questionsarray);
-	}
+		return questions;
+		}		
 
-	countlessons();
+	console.log(countlessons(2)); // returns the quizitems in the step 
 
 
 
