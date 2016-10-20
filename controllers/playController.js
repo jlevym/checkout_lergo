@@ -29,6 +29,11 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
     console.log(Object.keys($scope.thislesson));
     console.log(Object.keys($scope.thislesson.steps));
     console.log(Object.keys($scope.question1));
+
+    // extracting the value of the clicked radio button
+    $scope.option = {};
+
+
     
 
 }]);
