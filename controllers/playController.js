@@ -17,8 +17,11 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	var thislesson = $scope.thislesson;
 	var steps = thislesson.steps;
 	var questions = []; // this is an array to keep all the steps / questions
-	var questionsarray = {};
-	var questionsobject ={};
+
+
+	// this function below will extact the questions from the passed in step of the lesson
+	// and make an array for that step called questions
+	// the next step is to play this array
 	var countlessons = function (step) { /*we pass in the step number we want*/
 				if(steps[step].quizItems) {
 					for (quizItem in steps[step].quizItems){
@@ -28,14 +31,25 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 				return 'no quizItems in this step';
 			}
 		return questions;
-		}		
-
-	console.log(countlessons(2)); // returns the quizitems in the step 
+		}
 
 
 
 
+	console.log("the first one :" + countlessons(2)); // returns the quizitems in the step 
 
+	(function test () { // this IIFE runs / calls all the steps to get all the questions
+		console.log('this is is a test of IIFE');
+		for (step in steps) {
+			console.log(countlessons(step));
+		}
+	  })();
+		
+
+
+
+
+	 /* below is all the code for the truefalsequestion.html*/
 
 
 
