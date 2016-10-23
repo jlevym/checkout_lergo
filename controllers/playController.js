@@ -46,14 +46,16 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	  
 
 	  // play countlessons(3)
-	  	$scope.index = 0;
+	  	var index = 0;
+	  	$scope.index = 'index';
+
 	  	var playquestion = function(question) {
 	  		var thequestion=aquestion(question[0]); //get the question via the questionid	 
 	  		// firtly, find the type of question
 		  	if (thequestion.type === "openQuestion"){
 		  		console.log("this is an openquestion");
 		  		return 'option1';	
-		  	}else if (thequestion.type === 'truefalsequestion') {
+		  	}else if (thequestion.type === 'trueFalse') {
 		  		console.log("this is a true / false question");
 		  		return 'option2'
 		  	}else {
@@ -74,7 +76,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	 /* below is all the code for the truefalsequestion.html*/
 	
 	/*this will give the first question of the lesson that has quizitems*/
-    var thisquestion = aquestion(id); // this sends the request for one question from questionFactory
+    var thisquestion = aquestion(countlessons(3)[0]); // this sends the request for one question from questionFactory
 
     $scope.question1 = thisquestion;
 
