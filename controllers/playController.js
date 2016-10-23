@@ -8,10 +8,10 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
     $scope.questions = qfac.questions;
    
 
-   	var id = $routeParams.id;
+   	var id = $routeParams.id;  // id of the lesson we want to play
 	$scope.thislesson = alesson(id); // this sends the request for one lesson from lessonFactory
-	console.log( 'this lesson from playconroller.js');
-	console.log($scope.thislesson);	 // prints out the lesson in the console. 
+	/*console.log( 'this lesson from playconroller.js');
+	console.log($scope.thislesson);*/	 // prints out the lesson in the console. 
 
     // this looks for all the questions in a lesson step given by the countlessons(lessonstep) below;
 	var thislesson = $scope.thislesson;
@@ -32,52 +32,61 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 			}
 		return questions;
 		}
+	/*console.log("the first one :" + countlessons(3)); // returns the quizitems in the step 
+*/
 
-
-
-
-	console.log("the first one :" + countlessons(2)); // returns the quizitems in the step 
-
-	(function test () { // this IIFE runs / calls all the steps to get all the questions
+	// 1 . making the array of questions numbers but each step erases the previous step data
+	/*(function test () { // this IIFE runs / calls all the steps to get all the questions
 		console.log('this is is a test of IIFE');
 		for (step in steps) {
+			console.log("the below is countlessons(" + steps + ")");
 			console.log(countlessons(step));
 		}
-	  })();
-		
+	  })();*/
+	  
+
+	  // play countlessons(3)
+	  	$scope.index = 0;
+	  	var playquestion = function(question) {
+	  		var thequestion=aquestion(question[0]); //get the question via the questionid	 
+	  		// firtly, find the type of question
+		  	if (thequestion.type === "openQuestion"){
+		  		console.log("this is an openquestion");
+		  		return 'option1';	
+		  	}else if (thequestion.type === 'truefalsequestion') {
+		  		console.log("this is a true / false question");
+		  		return 'option2'
+		  	}else {
+		  		console.log('needs definition: this is a type : ' + thequestion.type);
+		  		return 'option3';
+		  	}
+	  	}
+	  	//console.log(playquestion(countlessons(3)));
+
+
+		$scope.options = playquestion(countlessons(3)); // by defining the scope, it causes the function to run
+		$scope.name = 'jeff';
+
 
 
 
 
 	 /* below is all the code for the truefalsequestion.html*/
-
-
-
-
-	// lets also get an example question from a given id. maybe this is  supposed to be moved to 
-	//questionController.js
-
-	var id = '536a8c9bd3be723956c85634'; /*$routeParams.id;*/
-    var thisquestion = aquestion(id); // this sends the request for one lesson from questionFactory
+	
+	/*this will give the first question of the lesson that has quizitems*/
+    var thisquestion = aquestion(id); // this sends the request for one question from questionFactory
 
     $scope.question1 = thisquestion;
-    console.log( 'this question from playconroller.js');
-    console.log(thisquestion); 
 
 
+    /*console.log( 'this question from playconroller.js');
+    console.log(thisquestion); */
 
-
-
-
-
-
-    // what we really need to do is find all the steps and questions from the lesson above and start 
-    // building the ui for a question
-
+    // checks the answer from a true / false and gives the result
     // extracting the value of the clicked radio button
 
-    	// prevent answering the lesson twice
-    	$scope.isDisabled = false;
+    	
+    	$scope.isDisabled = false; // prevent answering the lesson twice
     	$scope.result = 'please choose an answer';
 
     	/*checks the values of the radio button and answer if true / false*/

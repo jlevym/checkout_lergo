@@ -4,10 +4,19 @@
 
 <!-- <p>play lesson starting here</p> --> <!-- playController.js/playLessonController -->
 <a href="#/">home</a> <br>
+<!-- for ng-if don't use {{}} to get the scope, just the word attribute itself -->
+<div ng-include = '"views/playLessonTypes/openQuestion.html"' ng-if="options === 'option1'"></div> 
+<div ng-include = '"views/playLessonTypes/truefalsequestion.html"' ng-if="options === 'option2'" ></div> 
+<div ng-include = '"views/playLessonTypes/otherquestion.html"' ng-if="options === 'option3'"></div>
 
-<div ng-include = '"views/truefalsequestion.html"'></div>
+{{index}} 
 
-<!-- <p>a lesson id is: {{thislessonid}}</p>
+<!-- <p> these are the options </p>
+{{options}} </br>
+{{name}}
+
+
+<p>a lesson id is: {{thislessonid}}</p>
 
 with the name of: {{thislesson.name}}
 
@@ -16,5 +25,6 @@ with the name of: {{thislesson.name}}
 </div>
 
 a question : {{question1.question}}
+
 
  -->

@@ -1,5 +1,5 @@
 // this factory get an id and returns the question of that id .it has not been tested 
-// and is just a clever copy of lessonFactory
+// and is just a clever copy of lessonFactor
 myApp.factory('questionFactory', function(lergoQuestions) {
 
 
@@ -16,7 +16,7 @@ myApp.factory('questionFactory', function(lergoQuestions) {
     			return thisquestion1;
     		}
     	}  
-    	
+    	return "no question found in questionfactory for this id";
     }
 		thisquestion = aquestion;
     	return thisquestion;
