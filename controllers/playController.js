@@ -32,8 +32,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 			}
 		return questions;
 		}
-	/*console.log("the first one :" + countlessons(3)); // returns the quizitems in the step 
-*/
+	
 
 	// 1 . making the array of questions numbers but each step erases the previous step data
 	/*(function test () { // this IIFE runs / calls all the steps to get all the questions
@@ -47,27 +46,41 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 
 	  // play countlessons(3)
 	  	var index = 0;
-	  	$scope.index = 'index';
+	  	$scope.index = index;
+	  	//this will move us to the next question in the array.
+	  	$scope.increment = function() {
+	  		$scope.index++;
+	  		playquestion(countlessons(3)[$scope.index]);
+	  	}
 
 	  	var playquestion = function(question) {
-	  		var thequestion=aquestion(question[0]); //get the question via the questionid	 
+	  		var thequestion=aquestion(question); //get the question via the questionid
+	  		$scope.question1=thequestion;
+	  		console.log('playquestion has been called')	 
 	  		// firtly, find the type of question
 		  	if (thequestion.type === "openQuestion"){
 		  		console.log("this is an openquestion");
-		  		return 'option1';	
+		  		console.log(thequestion);
+		  		return 'type1';	
 		  	}else if (thequestion.type === 'trueFalse') {
 		  		console.log("this is a true / false question");
-		  		return 'option2'
-		  	}else {
+		  		return 'type2'
+		  	}else if (thequestion.type === 'multipleChoices') {
+		  		console.log("this is a multipleChoices question");
+		  		return 'type3'
+		  	}
+		  	else {
 		  		console.log('needs definition: this is a type : ' + thequestion.type);
-		  		return 'option3';
+		  		return 'type4';
 		  	}
 	  	}
 	  	//console.log(playquestion(countlessons(3)));
 
+	  	// must have something, like this below, to make the playquestion function run the first time.
 
-		$scope.options = playquestion(countlessons(3)); // by defining the scope, it causes the function to run
-		$scope.name = 'jeff';
+	  	
+		$scope.options = playquestion(countlessons(3)[$scope.index]); // by defining the scope, it causes the function to run
+		
 
 
 
@@ -76,9 +89,9 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	 /* below is all the code for the truefalsequestion.html*/
 	
 	/*this will give the first question of the lesson that has quizitems*/
-    var thisquestion = aquestion(countlessons(3)[0]); // this sends the request for one question from questionFactory
+    /*var thisquestion = aquestion(countlessons(3)[0]);*/ // this sends the request for one question from questionFactory
 
-    $scope.question1 = thisquestion;
+    /*$scope.question1 = thisquestion;*/  // this is just a specific question, not the right one. 
 
 
     /*console.log( 'this question from playconroller.js');

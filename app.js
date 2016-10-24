@@ -9,7 +9,7 @@ myApp.config(function($routeProvider) {
     controller: "alllessonController"
   })
   .when("/play/:id", {
-  	templateUrl: "views/playlesson.html",
+  	templateUrl: "views/playLessonTypes/playlesson.html",
   	controller: "playLessonController"
   })
    .when("/one/:id", {

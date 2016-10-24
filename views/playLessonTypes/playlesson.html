@@ -1,13 +1,17 @@
 <!-- this landing page comes from onelesson.html ==> main.html-->
 <!--  showing the questions of the lesson -->
-<!-- put a ng-include on this page to show the first , most simple question : true / false -->
+
 
 <!-- <p>play lesson starting here</p> --> <!-- playController.js/playLessonController -->
 <a href="#/">home</a> <br>
+
+
 <!-- for ng-if don't use {{}} to get the scope, just the word attribute itself -->
-<div ng-include = '"views/playLessonTypes/openQuestion.html"' ng-if="options === 'option1'"></div> 
-<div ng-include = '"views/playLessonTypes/truefalsequestion.html"' ng-if="options === 'option2'" ></div> 
-<div ng-include = '"views/playLessonTypes/otherquestion.html"' ng-if="options === 'option3'"></div>
+<div ng-include = '"views/playLessonTypes/_openQuestion.html"'      ng-if="options === 'type1'"></div> 
+<div ng-include = '"views/playLessonTypes/_truefalsequestion.html"' ng-if="options === 'type2'" ></div>
+<div ng-include = '"views/playLessonTypes/_multipleChoices.html"'   ng-if="options === 'type3'"></div> 
+<div ng-include = '"views/playLessonTypes/_otherquestion.html"'     ng-if="options === 'type4'"></div>
+<!-- <div ng-include = '"views/playLessonTypes/_openQuestion.html"'     ></div>  -->
 
 {{index}} 
 
