@@ -51,7 +51,6 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	  		$scope.isDisabled = false; //need to reset the disabled flag every question
 	  		$scope.index++;
 	  		$scope.options = $scope.aoptions(countlessons(3)[$scope.index]);
-	  		return $scope.options;
 	  	}
 
 
@@ -79,7 +78,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 		  	}
 	  	}
 	  	
-		$scope.options = $scope.aoptions($scope.question); 
+		$scope.options = $scope.aoptions($scope.question); // for the first question before we do 'increment'
 		
 
     // checks the answer from a true / false and gives the result
