@@ -1,4 +1,4 @@
-myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions', '$routeParams', 'lessonFactory', 'questionFactory', function($scope, lergoData, lergoQuestions, $routeParams, lessonFactory , questionFactory) {
+myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions', '$routeParams', 'lessonFactory', 'questionFactory', '$timeout', function($scope, lergoData, lergoQuestions, $routeParams, lessonFactory , questionFactory, $timeout) {
 
 	// this is the controller for the playlesson.html which plays the lesson.
 
@@ -92,6 +92,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	    /*$scope.option = 'option3'; */
 	   $scope.newValue = function(value) {
 	   	$scope.isDisabled = true;
+	   	$timeout($scope.increment, 2000); // moves to the next question after timeout time
 	   	if(value=='option1'){
 	   		$scope.result = 'sorry, that is incorrect';
      		console.log(value);
