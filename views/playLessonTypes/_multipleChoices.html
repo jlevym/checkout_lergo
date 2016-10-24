@@ -1,10 +1,26 @@
-<p>multipleChoices</p>
+<div class="container">
+	<div class="panel panel-default push-left: 20px">
+		<div class="row">
 
-<h1>{{question1.question}}</h1>
 
-<a href=""ng-click='increment()'>submit</a>
+					<p>multipleChoices</p>
 
-multiple choice is many radio buttons
-and should move after a time delay to the next lesson
-{{index}}
-{{options}}
+					<h1>{{question1.question}}</h1>
+
+					<a href=""ng-click='increment()'>submit</a>
+
+					<div ng-repeat="option in question1.options">
+						  <div class="form-check">
+						          <label class="form-check-label">
+						            <input  class="form-check-input"  type="radio" ng-model="option"  ng-change='newValue(option)'ng-disabled="isDisabled" >
+						            {{option.label}}
+						          </label>
+							</div>
+					</div>
+					<div class= "col-xs-10 col-xs-offset-1 " >
+		  				<h1 style="border-style: solid; background: #42d7f4; border-width: 2px; border-color: blue ; text-align: center"  >{{result}}</h1>
+		  			</div>
+			</div>
+	</div>
+</div>
+

@@ -68,6 +68,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 		  	}else if (thequestion.type === 'exactMatch') {
 		  		return 'type4'
 		  	}else if (thequestion.type === 'multipleChoices') {
+		  		console.log(thequestion);
 		  		return 'type3'
 		  	}else if (thequestion.type === 'fillInTheBlanks') {
 		  		return 'type5'
@@ -81,9 +82,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 		$scope.options = $scope.aoptions($scope.question); // for the first question before we do 'increment'
 		
 
-    // checks the answer from a true / false and gives the result
-    // extracting the value of the clicked radio button
-
+    // starting true / false
     	
     	$scope.isDisabled = false; // prevent answering the lesson twice
     	$scope.result = 'please choose an answer';
