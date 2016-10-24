@@ -49,13 +49,11 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	  	//this will move us to the next question in the array.
 	  	$scope.increment = function() {
 	  		$scope.isDisabled = false; //need to reset the disabled flag every question
+	  		$scope.result = 'please choose an answer'; // need to reset the result before every question
 	  		$scope.index++;
 	  		$scope.options = $scope.aoptions(countlessons(3)[$scope.index]);
 	  	}
-
-
 	  	$scope.question = countlessons(3)[$scope.index]; // still working with a specific example from  	
-	  	/*$scope.aoptions = 'type4';*/
 	  	
 	  	$scope.aoptions = function(question) {
 	  		var thequestion=aquestion(question); //get the question via the questionid
@@ -82,7 +80,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 		$scope.options = $scope.aoptions($scope.question); // for the first question before we do 'increment'
 		
 
-    // starting true / false
+    // starting true / false and also multipleChoices
     	
     	$scope.isDisabled = false; // prevent answering the lesson twice
     	$scope.result = 'please choose an answer';
@@ -91,7 +89,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	    /*$scope.option = 'option3'; */
 	   $scope.newValue = function(value) {
 	   	$scope.isDisabled = true;
-	   	$timeout($scope.increment, 2000); // moves to the next question after timeout time
+	   	$timeout($scope.increment, 1000); // moves to the next question after timeout time
 	   	if(value=='option1'){
 	   		$scope.result = 'sorry, that is incorrect';
      		console.log(value);
