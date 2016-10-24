@@ -5,12 +5,17 @@
 <!-- <p>play lesson starting here</p> --> <!-- playController.js/playLessonController -->
 <a href="#/">home</a> <br>
 
+<p>the lesson we want to play is called : {{thislesson.name}}</p>
+
 
 <!-- for ng-if don't use {{}} to get the scope, just the word attribute itself -->
 <div ng-include = '"views/playLessonTypes/_openQuestion.html"'      ng-if="options === 'type1'"></div> 
 <div ng-include = '"views/playLessonTypes/_truefalsequestion.html"' ng-if="options === 'type2'" ></div>
 <div ng-include = '"views/playLessonTypes/_multipleChoices.html"'   ng-if="options === 'type3'"></div> 
-<div ng-include = '"views/playLessonTypes/_otherquestion.html"'     ng-if="options === 'type4'"></div>
+<div ng-include = '"views/playLessonTypes/_exactmatch.html"'        ng-if="options === 'type4'"></div>
+<div ng-include = '"views/playLessonTypes/_fillInTheBlanks.html"'   ng-if="options === 'type5'"></div>  
+
+<div ng-include = '"views/playLessonTypes/_otherquestion.html"'     ng-if="options === 'type9'"></div>
 
 
 index: {{index}}

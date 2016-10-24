@@ -48,6 +48,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	  	$scope.index = index; // the question in the array of questions
 	  	//this will move us to the next question in the array.
 	  	$scope.increment = function() {
+	  		$scope.isDisabled = false; //need to reset the disabled flag every question
 	  		$scope.index++;
 	  		$scope.options = $scope.aoptions(countlessons(3)[$scope.index]);
 	  		return $scope.options;
@@ -62,19 +63,19 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	  		$scope.question1=thequestion;
 	  		// firtly, find the type of question
 		  	if (thequestion.type === "openQuestion"){
-		  		console.log("this is an openquestion");
-		  		console.log(thequestion);
 		  		return 'type1';	
 		  	}else if (thequestion.type === 'trueFalse') {
-		  		console.log("this is a true / false question");
 		  		return 'type2'
+		  	}else if (thequestion.type === 'exactMatch') {
+		  		return 'type4'
 		  	}else if (thequestion.type === 'multipleChoices') {
-		  		console.log("this is a multipleChoices question");
 		  		return 'type3'
+		  	}else if (thequestion.type === 'fillInTheBlanks') {
+		  		return 'type5'
 		  	}
 		  	else {
 		  		console.log('needs definition: this is a type : ' + thequestion.type);
-		  		return 'type4';
+		  		return 'type9';
 		  	}
 	  	}
 	  	
@@ -89,7 +90,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
     	$scope.result = 'please choose an answer';
 
     	/*checks the values of the radio button and answer if true / false*/
-	    $scope.option = 'option3'; 
+	    /*$scope.option = 'option3'; */
 	   $scope.newValue = function(value) {
 	   	$scope.isDisabled = true;
 	   	if(value=='option1'){
