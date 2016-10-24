@@ -66,7 +66,6 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 		  	}else if (thequestion.type === 'exactMatch') {
 		  		return 'type4'
 		  	}else if (thequestion.type === 'multipleChoices') {
-		  		console.log(thequestion);
 		  		return 'type3'
 		  	}else if (thequestion.type === 'fillInTheBlanks') {
 		  		return 'type5'
@@ -89,12 +88,16 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	    /*$scope.option = 'option3'; */
 	   $scope.newValue = function(value) {
 	   	$scope.isDisabled = true;
-	   	$timeout($scope.increment, 1000); // moves to the next question after timeout time
-	   	if(value=='option1'){
-	   		$scope.result = 'sorry, that is incorrect';
-     		console.log(value);
-	   	}else{
+	   	$timeout($scope.increment, 1000); // moves to the next question after timeout time	
+	   	if(value === 'True'){ // this is the option for True / False
 	   		$scope.result = 'good job';
+     		console.log(value);
+	   	}else if (value.checked){ // these are the options for multipleChoices
+	   		$scope.result = 'good job';
+     		console.log(value.checked);
+	   	}else{
+	   		$scope.result = 'sorry, that is incorrect' ;
+	   		console.log(value);
 	   	}
 }
 

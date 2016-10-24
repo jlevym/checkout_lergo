@@ -1,18 +1,15 @@
-<h1>openQuestion</h1>
 
-<h1>{{question1.question}}</h1>
 
-<div class="input-group">
-    <textarea ng-model='openquestionanswer' class="form-control custom-control" rows="3" style="resize:none"></textarea>     
-    <span class="input-group-addon btn btn-primary ">Answer</span>
+ <div class="panel panel-default ">
+	<div class="row">
+		<div class="col-md-10">		
+			<h1 style="padding-left: 50px">{{question1.question}}</h1>
+			<div style="padding-left: 50px; padding-bottom: 50px" class="input-group">
+    			<textarea ng-model='openquestionanswer' class="form-control custom-control" rows="1" style="resize:none"></textarea>     
+    			<span class="input-group-addon btn btn-primary " ng-click='increment()'>Answer</span>
+			</div>
+
+		</div>
+	</div>
 </div>
-
-{{openquestionanswer}}
-
-<a href=""ng-click='increment()'>submit</a>
-{{index}}
-options: {{options}}
-
-
-
 

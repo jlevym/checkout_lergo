@@ -5,7 +5,9 @@
 <!-- <p>play lesson starting here</p> --> <!-- playController.js/playLessonController -->
 <a href="#/">home</a> <br>
 
-<p>the lesson we want to play is called : {{thislesson.name}}</p>
+ <div class= "col-xs-10 col-xs-offset-1 " >
+		  <h1 style="border-style: solid; background: #42d7f4; border-width: 2px; border-color: blue ; text-align: center"  >{{thislesson.name}}</h1>
+		  </div><br>
 
 
 <!-- for ng-if don't use {{}} to get the scope, just the word attribute itself -->
@@ -14,29 +16,12 @@
 <div ng-include = '"views/playLessonTypes/_multipleChoices.html"'   ng-if="options === 'type3'"></div> 
 <div ng-include = '"views/playLessonTypes/_exactmatch.html"'        ng-if="options === 'type4'"></div>
 <div ng-include = '"views/playLessonTypes/_fillInTheBlanks.html"'   ng-if="options === 'type5'"></div>  
-
+<!-- if we have not defined a partial yet, it will go to the line below -->
 <div ng-include = '"views/playLessonTypes/_otherquestion.html"'     ng-if="options === 'type9'"></div>
 
 
-index: {{index}}
+<!-- index: {{index}}
 options: {{options}}
 
-
-
-<!-- <p> these are the options </p>
-{{options}} </br>
-{{name}}
-
-
-<p>a lesson id is: {{thislessonid}}</p>
-
-with the name of: {{thislesson.name}}
-
-<div ng-repeat = "step in thislesson.steps">
-	steps: {{$index}}.  number of questions: {{step.quizItems.length}} 
-</div>
-
-a question : {{question1.question}}
-
-
  -->
+
