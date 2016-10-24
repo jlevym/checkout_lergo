@@ -11,9 +11,12 @@
 <div ng-include = '"views/playLessonTypes/_truefalsequestion.html"' ng-if="options === 'type2'" ></div>
 <div ng-include = '"views/playLessonTypes/_multipleChoices.html"'   ng-if="options === 'type3'"></div> 
 <div ng-include = '"views/playLessonTypes/_otherquestion.html"'     ng-if="options === 'type4'"></div>
-<!-- <div ng-include = '"views/playLessonTypes/_openQuestion.html"'     ></div>  -->
 
-{{index}} 
+
+index: {{index}}
+options: {{options}}
+
+
 
 <!-- <p> these are the options </p>
 {{options}} </br>

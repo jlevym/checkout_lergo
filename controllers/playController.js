@@ -50,13 +50,17 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	  	//this will move us to the next question in the array.
 	  	$scope.increment = function() {
 	  		$scope.index++;
-	  		playquestion(countlessons(3)[$scope.index]);
+	  		$scope.options = $scope.aoptions(countlessons(3)[$scope.index]);
+	  		return $scope.options;
 	  	}
 
-	  	var playquestion = function(question) {
+
+	  	$scope.question = countlessons(3)[$scope.index];	
+	  	$scope.aoptions = 'type4';
+	  	/*var playquestion = function(question) {*/
+	  	$scope.aoptions = function(question) {
 	  		var thequestion=aquestion(question); //get the question via the questionid
 	  		$scope.question1=thequestion;
-	  		console.log('playquestion has been called')	 
 	  		// firtly, find the type of question
 		  	if (thequestion.type === "openQuestion"){
 		  		console.log("this is an openquestion");
@@ -79,9 +83,10 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	  	// must have something, like this below, to make the playquestion function run the first time.
 
 	  	
-		$scope.options = playquestion(countlessons(3)[$scope.index]); // by defining the scope, it causes the function to run
+		/*$scope.options = playquestion(countlessons(3)[$scope.index]);*/ // by defining the scope, it causes the function to run
 		
-
+		$scope.options = $scope.aoptions($scope.question); 
+		
 
 
 
