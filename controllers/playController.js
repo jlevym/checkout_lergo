@@ -13,6 +13,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	
     // this looks for all the questions in a lesson step given by the countlessons(lessonstep) below;
 	var thislesson = $scope.thislesson;
+	console.log(thislesson);
 	var steps = thislesson.steps;
 
 	// this is an empty array to keep all the steps / questions but only of 1 step
@@ -33,16 +34,6 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 		}
 	
 
-	// 1 . making the array of questions numbers but each step erases the previous step data
-	/*(function test () { // this IIFE runs / calls all the steps to get all the questions
-		console.log('this is is a test of IIFE');
-		for (step in steps) {
-			console.log("the below is countlessons(" + steps + ")");
-			console.log(countlessons(step));
-		}
-	  })();*/
-	  
-
 	  // play countlessons(3)
 	  	var index = 0;
 	  	$scope.index = index; // the question in the array of questions
@@ -55,10 +46,12 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	  	}
 	  	$scope.question = countlessons(3)[$scope.index]; // still working with a specific example from  	
 	  	
+
+	  	//aoptions gets a question id and checks what type of question it is.
+	  	// the result is used by the ng-include in playlesson.html to get the correct question view by type. 
 	  	$scope.aoptions = function(question) {
 	  		var thequestion=aquestion(question); //get the question via the questionid
 	  		$scope.question1=thequestion;
-	  		// firtly, find the type of question
 		  	if (thequestion.type === "openQuestion"){
 		  		return 'type1';	
 		  	}else if (thequestion.type === 'trueFalse') {

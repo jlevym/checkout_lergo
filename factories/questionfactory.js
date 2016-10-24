@@ -1,5 +1,4 @@
-// this factory get an id and returns the question of that id .it has not been tested 
-// and is just a clever copy of lessonFactor
+// this factory get an id and returns the question of that id .
 myApp.factory('questionFactory', function(lergoQuestions) {
 
 
