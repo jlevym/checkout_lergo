@@ -11,7 +11,7 @@
 
 
 <!-- for ng-if don't use {{}} to get the scope, just the word attribute itself -->
-<div ng-include = '"views/playLessonTypes/_openQuestion.html"'      ng-if="options === 'type1'"></div> 
+<div ng-include = '"views/playLessonTypes/_openQuestion.html"'      ng-if="options === 'openQuestion'"></div> 
 <div ng-include = '"views/playLessonTypes/_truefalsequestion.html"' ng-if="options === 'type2'" ></div>
 <div ng-include = '"views/playLessonTypes/_multipleChoices.html"'   ng-if="options === 'type3'"></div> 
 <div ng-include = '"views/playLessonTypes/_exactmatch.html"'        ng-if="options === 'type4'"></div>

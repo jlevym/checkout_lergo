@@ -29,7 +29,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
 	$scope.url = ''; // video or other presentation url
 	$scope.quizid = ''; // id of a question
-	$scope.lessontype();
+	$scope.options = $scope.lessontype();
 	}
 
 
@@ -39,7 +39,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 					var thistype = $scope.thislesson.steps[index];
 					if (thistype)	{ // checks if there is a step at this index
 						if (thistype.type === 'video') {
-							console.log('this is a video');
+							console.log('video');
 							$scope.url = thistype.url
 							return 'video';
 						}
@@ -47,13 +47,15 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 						else if (thistype.type === 'quiz') {
 							console.log('this is a quiz');
 							$scope.quizItem = thistype.quizItems[quizindex];
-							console.log($scope.quizItem);
+							var thequestion=aquestion($scope.quizItem);// will return the question
+							var type = thequestion.type;
+							console.log(type); // will give the type of question
 							quizindex++;
 							if (quizindex < thistype.quizItems.length) {
 								index = index-1;
 							}
 							
-							return 'quiz';
+							return type;
 
 						}else{
 							return 'need more definitions'; 
