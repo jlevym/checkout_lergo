@@ -11,71 +11,69 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
    	var id = $routeParams.id;  // id of the lesson we want to play
 	$scope.thislesson = alesson(id); // this sends the request for one lesson from lessonFactory
 	
-    // this looks for all the questions in a lesson step given by the countlessons(lessonstep) below;
-	var thislesson = $scope.thislesson;
-	console.log(thislesson);
-	var steps = thislesson.steps;
+   
+	var index = '-1';  // index of steps in lesson
+	var quizindex = '0'; // index for the quizItem in array of questions
+	$scope.disabled = 'false'; // allows the user to click on the answer
+	$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
+	$scope.url = ''; // video or other presentation url
+	$scope.quizid = ''; // id of a question
 
-	// this is an empty array to keep all the steps / questions but only of 1 step
-	var questions = []; 
+	// new code
+	// define and set variables
+
+	$scope.increment = function() {
+	var index = '-1';  // index of steps in lesson
+	var quizindex = '0'; // index for the quizItem in array of questions
+	$scope.disabled = 'false'; // allows the user to click on the answer
+	$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
+	$scope.url = ''; // video or other presentation url
+	$scope.quizid = ''; // id of a question
+	$scope.lessontype();
+	}
 
 
-	// this function below will extact the questions from the passed in step of the lesson
-	// and make an array for that step called questions
-	var countlessons = function (step) { /*we pass in the step number we want*/
-				if(steps[step].quizItems) {
-					for (quizItem in steps[step].quizItems){
-						questions.push( steps[step].quizItems[quizItem] ); // this pushes to array
-					}
-			}else {
-				return 'no quizItems in this step';
-			}
-		return questions; // the array of questions for this step
-		}
-	
+		/*var lessontype is the variable that changes depending on the step type (video, quiz etc) */
+		 $scope.lessontype = function () { //returns values to playlesson.html
+					index++;
+					var thistype = $scope.thislesson.steps[index];
+					if (thistype)	{ // checks if there is a step at this index
+						if (thistype.type === 'video') {
+							console.log('this is a video');
+							$scope.url = thistype.url
+							return 'video';
+						}
 
-	  // play countlessons(3)
-	  	var index = 0;
-	  	$scope.index = index; // the question in the array of questions
-	  	//this will move us to the next question in the array.
-	  	$scope.increment = function() {
-	  		$scope.isDisabled = false; //need to reset the disabled flag every question
-	  		$scope.result = 'please choose an answer'; // need to reset the result before every question
-	  		$scope.index++;
-	  		$scope.options = $scope.aoptions(countlessons(3)[$scope.index]);
-	  	}
-	  	$scope.question = countlessons(3)[$scope.index]; // still working with a specific example from  	
-	  	
+						else if (thistype.type === 'quiz') {
+							console.log('this is a quiz');
+							$scope.quizItem = thistype.quizItems[quizindex];
+							console.log($scope.quizItem);
+							quizindex++;
+							if (quizindex < thistype.quizItems.length) {
+								index = index-1;
+							}
+							
+							return 'quiz';
 
-	  	//aoptions gets a question id and checks what type of question it is.
-	  	// the result is used by the ng-include in playlesson.html to get the correct question view by type. 
-	  	$scope.aoptions = function(question) {
-	  		var thequestion=aquestion(question); //get the question via the questionid
-	  		$scope.question1=thequestion;
-		  	if (thequestion.type === "openQuestion"){
-		  		return 'type1';	
-		  	}else if (thequestion.type === 'trueFalse') {
-		  		return 'type2'
-		  	}else if (thequestion.type === 'exactMatch') {
-		  		return 'type4'
-		  	}else if (thequestion.type === 'multipleChoices') {
-		  		return 'type3'
-		  	}else if (thequestion.type === 'fillInTheBlanks') {
-		  		return 'type5'
-		  	}
-		  	else {
-		  		console.log('needs definition: this is a type : ' + thequestion.type);
-		  		return 'type9';
-		  	}
-	  	}
-	  	
-		$scope.options = $scope.aoptions($scope.question); // for the first question before we do 'increment'
-		
+						}else{
+							return 'need more definitions'; 
+						}	
 
-    // starting true / false and also multipleChoices
-    	
-    	$scope.isDisabled = false; // prevent answering the lesson twice
-    	$scope.result = 'please choose an answer';
+				}else{
+					console.log('lesson is over'); // what to do when lesson is over
+					return 'report';
+				}
+				
+	}
+
+	$scope.options = $scope.lessontype();
+
+
+
+
+
+	 
+	  
 
     	/*checks the values of the radio button and answer if true / false*/
 	    /*$scope.option = 'option3'; */

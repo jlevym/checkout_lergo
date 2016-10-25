@@ -15,13 +15,14 @@
 <div ng-include = '"views/playLessonTypes/_truefalsequestion.html"' ng-if="options === 'type2'" ></div>
 <div ng-include = '"views/playLessonTypes/_multipleChoices.html"'   ng-if="options === 'type3'"></div> 
 <div ng-include = '"views/playLessonTypes/_exactmatch.html"'        ng-if="options === 'type4'"></div>
-<div ng-include = '"views/playLessonTypes/_fillInTheBlanks.html"'   ng-if="options === 'type5'"></div>  
+<div ng-include = '"views/playLessonTypes/_fillInTheBlanks.html"'   ng-if="options === 'type5'"></div> 
+<div ng-include = '"views/playLessonTypes/_video.html"'             ng-if="options === 'video'"></div>   
 <!-- if we have not defined a partial yet, it will go to the line below -->
 <div ng-include = '"views/playLessonTypes/_otherquestion.html"'     ng-if="options === 'type9'"></div>
 
 
-<!-- index: {{index}}
-options: {{options}}
+
 
  -->
-
+<br><a href="" ng-click="increment()"><h2>Start the lesson</h2></a>
+options: {{options}}

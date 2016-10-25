@@ -9,7 +9,9 @@ myApp.controller('oneLessonController', ['$scope', '$routeParams','lergoData', '
     $scope.lessonObj = thislesson;
     console.log(thislesson);
 
-    function showdetailsofsteps() {
+
+    //this is helper code that can be removed
+   /* function showdetailsofsteps() {
     	
     		
     		for(step in thislesson.steps) {
@@ -26,9 +28,9 @@ myApp.controller('oneLessonController', ['$scope', '$routeParams','lergoData', '
  
     		
     	}
-    }
+    }*/
 
-    showdetailsofsteps();
+    //showdetailsofsteps();
     
 }]);
 
