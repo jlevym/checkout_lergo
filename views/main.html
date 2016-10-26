@@ -6,10 +6,10 @@
 			<div class="media" style="background-color:cyan; min-height: 300px; padding: 20px">
 			  <div class="media-left media-top">
 			 <!--  the flag below is to show the href when showing all the lessons. flag is defined in lessonController -->
-			    <a ng-if = 'flag' ng-href=' #/one/{{lessonObj._id}}' <p>
+			   <!--  <a ng-if = '!flag' ng-href=' #/one/{{lessonObj._id}}' <p>
 			      <img class="media-object" src="images/Optimized-owl2.jpg" alt="..."  </p> 
-			    </a>
-			    <a ng-if = '!flag' ng-href=' #/play/{{lessonObj._id}}' <p> 
+			    </a> -->
+			    <a ng-if = 'flag' ng-href=' #/play/{{lessonObj._id}}' <p>  <!-- we may not need the #/one part at all or the flag -->
 			      <img class="media-object" src="images/Optimized-owl2.jpg" alt="..."  </p> 
 			    </a>
 			  </div>
