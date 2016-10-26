@@ -29,12 +29,12 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 		$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
 		$scope.url = ''; // video or other presentation url
 		$scope.quizid = ''; // id of a question
-		$scope.options = $scope.lessontype();
+		$scope.options = lessontype();
 	}
 
 
 		/*var lessontype is the variable that changes depending on the step type (video, quiz etc) */
-		 $scope.lessontype = function () { //returns values to playlesson.html
+		 var lessontype = function () { //returns values to playlesson.html
 					index++;
 					var thistype = $scope.thislesson.steps[index];
 					if (thistype)	{ // checks if there is a step at this index
