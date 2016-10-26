@@ -14,7 +14,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
    
 	var index = '-1';  // index of steps in lesson
 	var quizindex = '0'; // index for the quizItem in array of questions
-	$scope.disabled = 'false'; // allows the user to click on the answer
+	$scope.isDisabled = false; // allows the user to click on the answer
 	$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
 	$scope.url = ''; // video or other presentation url
 	$scope.quizid = ''; // id of a question
@@ -23,13 +23,13 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	// define and set variables
 
 	$scope.increment = function() {
-	var index = '-1';  // index of steps in lesson
-	var quizindex = '0'; // index for the quizItem in array of questions
-	$scope.disabled = 'false'; // allows the user to click on the answer
-	$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
-	$scope.url = ''; // video or other presentation url
-	$scope.quizid = ''; // id of a question
-	$scope.options = $scope.lessontype();
+		var index = '-1';  // index of steps in lesson
+		var quizindex = '0'; // index for the quizItem in array of questions
+		$scope.isDisabled = false; // allows the user to click on the answer
+		$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
+		$scope.url = ''; // video or other presentation url
+		$scope.quizid = ''; // id of a question
+		$scope.options = $scope.lessontype();
 	}
 
 
@@ -47,11 +47,11 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 						else if (thistype.type === 'quiz') {
 							console.log('this is a quiz');
 							$scope.quizItem = thistype.quizItems[quizindex];
-							var thequestion=aquestion($scope.quizItem);// will return the question
-							var type = thequestion.type;
+							$scope.question1=aquestion($scope.quizItem);// will return the question from questionsfactory
+							var type = $scope.question1.type;
 							console.log(type); // will give the type of question
 							quizindex++;
-							if (quizindex < thistype.quizItems.length) {
+							if (quizindex < thistype.quizItems.length) { // tests if we are at the end of the array of questions
 								index = index-1;
 							}
 							
@@ -68,29 +68,19 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 				
 	}
 
-	$scope.options = $scope.lessontype();
-
-
-
-
-
-	 
-	  
-
     	/*checks the values of the radio button and answer if true / false*/
-	    /*$scope.option = 'option3'; */
 	   $scope.newValue = function(value) {
-	   	$scope.isDisabled = true;
-	   	$timeout($scope.increment, 1000); // moves to the next question after timeout time	
-	   	if(value === 'True'){ // this is the option for True / False
-	   		$scope.result = 'good job';
-     		console.log(value);
-	   	}else if (value.checked){ // these are the options for multipleChoices
-	   		$scope.result = 'good job';
-     		console.log(value.checked);
-	   	}else{
-	   		$scope.result = 'sorry, that is incorrect' ;
-	   		console.log(value);
+			$scope.isDisabled = true;
+			$timeout($scope.increment, 1000); // moves to the next question after timeout time	
+			   	if(value === 'True'){ // this is the option for True / False
+			   		$scope.result = 'good job';
+		     		console.log(value);
+			   	}else if (value.checked){ // these are the options for multipleChoices
+			   		$scope.result = 'good job';
+		     		console.log(value.checked);
+			   	}else{
+			   		$scope.result = 'sorry, that is incorrect' ;
+			   		console.log(value);
 	   	}
 }
 
