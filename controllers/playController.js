@@ -1,5 +1,8 @@
-myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions', '$routeParams', 'lessonFactory', 'questionFactory', '$timeout', function($scope, lergoData, lergoQuestions, $routeParams, lessonFactory , questionFactory, $timeout) {
+myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions', '$routeParams', 'lessonFactory', 'questionFactory', '$timeout', '$sce',  function($scope, lergoData, lergoQuestions, $routeParams, lessonFactory , questionFactory, $timeout, $sce) {
 
+	$scope.trustSrc = function(src) {
+    	return $sce.trustAsResourceUrl(src);
+  }
 	// this is the controller for the playlesson.html which plays the lesson.
 
 	// return the lesson with the clicked id
@@ -40,7 +43,13 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 					if (thistype)	{ // checks if there is a step at this index
 						if (thistype.type === 'video') {
 							console.log('video');
-							$scope.url = thistype.url
+							var thisurl = thistype.videoUrl
+							console.log(thisurl);
+							var complianturl= thisurl.replace("http://youtu.be", "https://www.youtube.com/embed");
+							complianturl = complianturl + '?rel=0'
+							console.log(complianturl);
+							/*$scope.videourl = "https://www.youtube.com/embed/zpOULjyy-n8";*/
+							$scope.videourl = complianturl;
 							return 'video';
 						}
 
@@ -83,6 +92,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 			   		console.log(value);
 	   	}
 }
+
 
 }]);
 

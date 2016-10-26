@@ -10,7 +10,8 @@
 		  </div><br>
 <!-- <div ng-include="'views/main.html'" > -->
 
-
+<div class="row">
+<div class="col-xs-10 col-xs-offset-1">
 <!-- for ng-if don't use {{}} to get the scope, just the word attribute itself -->
 <div ng-include = '"views/playLessonTypes/_openQuestion.html"'      ng-if="options === 'openQuestion'"></div> 
 <div ng-include = '"views/playLessonTypes/_truefalsequestion.html"' ng-if="options === 'trueFalse'" ></div>
@@ -21,6 +22,12 @@
 <!-- if we have not defined a partial yet, it will go to the line below -->
 <div ng-include = '"views/playLessonTypes/_otherquestion.html"'     ng-if="options === 'type9'"></div>
 
+</div>
+</div>
 
-<br><a href="" ng-click="increment()"><h2>Start the lesson</h2></a>
-options: {{options}}
+
+ <div class= "col-xs-10 col-xs-offset-1 " >
+ <a style="text-align: center" href="" ng-click="increment()"><h2>lets keep going...</h2></a>	 
+ </div>
+
+ 

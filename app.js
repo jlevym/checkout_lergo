@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',['ngRoute','infinite-scroll']);
+var myApp = angular.module('myApp',['ngRoute','infinite-scroll','ngSanitize']);
 
 
 
@@ -16,11 +16,6 @@ myApp.config(function($routeProvider) {
   	templateUrl: "views/onelesson.html",
   	controller: "oneLessonController"
   })
-   /*.when("/play/:id", {
-  	templateUrl: "views/playlesson.html",
-  	contoller: "playLessonController"
-  	
-  })*/
   .when("/it", {
     templateUrl : "views/it.html"
   })
