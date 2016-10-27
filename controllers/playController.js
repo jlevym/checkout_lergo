@@ -18,7 +18,6 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	var quizindex = '0'; // index for the quizItem in array of questions
 	$scope.isDisabled = false; // allows the user to click on the answer
 	$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
-	$scope.quizid = ''; // id of a question
 	$scope.options = '';
 	$scope.stepresult = {};
 	// define and set variables
@@ -28,7 +27,6 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 		var quizindex = '0'; // index for the quizItem in array of questions
 		$scope.isDisabled = false; // allows the user to click on the answer
 		$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
-		$scope.quizid = ''; // id of a question
 		$scope.options = lessontype();
 	
 	}
@@ -60,8 +58,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 							if (quizindex < thistype.quizItems.length) { // tests if we are at the end of the array of questions
 								index = index-1;
 							}else{ // the question array for this step is over
-								$scope.stepresult[index] = quizresultsarray ; //change the name of the array of results
-								console.log("final results of this step: " + quizresultsarray);
+								$scope.stepresult[index] = quizresultsarray ; // key of each array is the index number
 								console.log($scope.stepresult);
 								quizresultsarray =  [];
 							}
@@ -74,11 +71,12 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 
 				}else{
 					
-					$scope.stepresult[index] = quizresultsarray ; //change the name of the array of result
-					console.log("final results of this step: " + quizresultsarray);
+					$scope.stepresult[index] = quizresultsarray ; //add data to the key 'index' value
+					/*console.log("final results of this step: " + quizresultsarray);*/
 					console.log($scope.stepresult);
 					quizresultsarray =  [];
 					console.log('lesson is over'); // what to do when lesson is over
+					grade();
 					return 'report';
 				}
 				
@@ -91,20 +89,49 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 			   	if(value === 'True'){ // this is the option for True / False
 			   		$scope.result = 'good job';
 			   		quizresultsarray.push($scope.result);
-			   		console.log(quizresultsarray);
-		     		console.log(value);
+			   		/*console.log(quizresultsarray);
+		     		console.log(value);*/
 			   	}else if (value.checked){ // these are the options for multipleChoices
 			   		$scope.result = 'good job';
 			   		quizresultsarray.push($scope.result);
-			   		console.log(quizresultsarray);
-		     		console.log(value.checked);
+			   		/*console.log(quizresultsarray);
+		     		console.log(value.checked);*/
 			   	}else{
 			   		$scope.result = 'sorry, that is incorrect' ;
 			   		quizresultsarray.push($scope.result);
-			   		console.log(quizresultsarray);
-			   		console.log(value);
+			   		/*console.log(quizresultsarray);
+			   		console.log(value);*/
 	   	}
 }
 
+		// get the grade
+		var finalArray = $scope.stepresult; // all the results from the lesson
+		var grade =function () {
+			var totalquestions = 0;
+			var totalcorrect = 0;
+			var totalwrong = 0;
+			for (step in finalArray) {
+				console.log(step); // should be zero the first time
+				for(answer in finalArray[step]) {
+					console.log(finalArray[step]); // should be good job
+					console.log(answer) // should be zero the first time
+					totalquestions++ ;
+					console.log(totalquestions);
+					if(finalArray[step][answer] === 'good job') {
+						console.log(finalArray[step][answer]);
+						totalcorrect++;
+					}else {
+						totalwrong++
+					}
+				}
+			}
+			var grade = 100*totalcorrect/totalquestions;
+			$scope.finalgrade = grade.toString();
+			console.log($scope.finalgrade);
+		}
+
+
 }]);
 
+var num = 15;
+var n = num.toString();

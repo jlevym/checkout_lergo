@@ -10,8 +10,17 @@
 			    </a>
 			  </div>
 			  <div class="media-body">
-			  		<div class="media-heading"> <p> {{$index}}  <b style="color: blue" >{{lessonObj.name | limitTo: 50}}</b><br><span style="color: black">{{lessonObj.description | limitTo: 150}}</span> </p></div>
+			  		<div class="media-heading"> <p> {{$index}}  <b style="color: blue" >{{lessonObj.name | limitTo: 50}}</b><br><span style="color: black">{{lessonObj.description | limitTo: 150}}</span> </p>
+			  		</div>
+
 			  </div>
+			<!--   <div class="media mt-2">
+			      <a class="media-left" ng-href=' #/play/{{lessonObj._id}}'>
+			        <img class="media-object" src="..." alt="Generic placeholder image">
+			       <i class=" media-object fa fa-play fa-5x"></i>
+			      </a>
+
+			    </div> -->
 			
 	        	
 	       		<div ng-if="options === ''" style="height: 200px"></div>
@@ -22,4 +31,4 @@
 		
 			<div style="height: 30px"></div>  <!-- to seperate between the rows -->
 
-			
+
