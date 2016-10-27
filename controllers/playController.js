@@ -13,15 +13,14 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 
    	var id = $routeParams.id;  // id of the lesson we want to play
 	$scope.thislesson = alesson(id); // this sends the request for one lesson from lessonFactory
-	
+	$scope.lessonObj = $scope.thislesson;
    
 	var index = '-1';  // index of steps in lesson
 	var quizindex = '0'; // index for the quizItem in array of questions
 	$scope.isDisabled = false; // allows the user to click on the answer
 	$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
-	$scope.url = ''; // video or other presentation url
 	$scope.quizid = ''; // id of a question
-
+	$scope.options = '';
 	// new code
 	// define and set variables
 
@@ -30,7 +29,6 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 		var quizindex = '0'; // index for the quizItem in array of questions
 		$scope.isDisabled = false; // allows the user to click on the answer
 		$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
-		$scope.url = ''; // video or other presentation url
 		$scope.quizid = ''; // id of a question
 		$scope.options = lessontype();
 	}
