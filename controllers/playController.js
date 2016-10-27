@@ -1,14 +1,14 @@
 myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions', '$routeParams', 'lessonFactory', 'questionFactory', '$timeout', '$sce',  function($scope, lergoData, lergoQuestions, $routeParams, lessonFactory , questionFactory, $timeout, $sce) {
 
+	// need this to allow playing external videos
 	$scope.trustSrc = function(src) {
     	return $sce.trustAsResourceUrl(src);
   }
-	// this is the controller for the playlesson.html which plays the lesson.
 
 	// return the lesson with the clicked id
-	$scope.lessons = fac.lessons;
-    $scope.thislessonid = $routeParams.id;
-    $scope.questions = qfac.questions;
+	$scope.lessons = fac.lessons; // access to all the lessons			do we need this?
+    /*$scope.thislessonid = $routeParams.id;*/ // this specific lesson
+    $scope.questions = qfac.questions; // access to all the questions
    
 
    	var id = $routeParams.id;  // id of the lesson we want to play
