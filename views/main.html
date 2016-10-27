@@ -12,7 +12,14 @@
 			  <div class="media-body">
 			  		<div class="media-heading"> <p> {{$index}}  <b style="color: blue" >{{lessonObj.name | limitTo: 50}}</b><br><span style="color: black">{{lessonObj.description | limitTo: 150}}</span> </p></div>
 			  </div>
-			   <div ng-if="options === ''" class="panel-footer"><a   href="" ng-click="increment()">lets keep going...</a></div>
-			</div>
+			
+	        	
+	       		<div ng-if="options === ''" style="height: 200px"></div>
+        
+				<button ng-if="options === ''" class= "btn btn-primary btn-block"    href="" ng-click="increment()"><h3>lets go...</h3></button>
+
+			</div>	
+		
 			<div style="height: 30px"></div>  <!-- to seperate between the rows -->
+
 			
