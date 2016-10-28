@@ -15,8 +15,16 @@
 			</div>
 
 			<!-- showing the results -->
+
 		<div ng-repeat = "step in stepresult">
-			<div ng-repeat = "answer in step">
+		the step is {{step}}<br>
+		<!-- the question was : {{question(step.quid)}}<br> -->
+		the question id is: {{step.quid}}<br>
+		the score was: {{step.result}}<br>
+		your answer was: {{step.answer.label}}<br>
+		
+		</div>
+			<!-- <div ng-repeat = "answer in step">
 				this was your answer: <b>{{answer}}</b>
 				</div>
 				</div>
@@ -28,48 +36,5 @@
 				quizitems : {{quizitems}}
 				</div>
 				</div>
-
-
 				
-<!-- need to change the way report data is gathered so it will have all information:
-
-resultsofastep = [
-	 {
-		quizid: question1id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	},
-	{
-		quizid: question2id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	},
-	{
-		quizid: question2id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	}
-]
-
-resultsofanotherstep = [
-	 {
-		quizid: question1id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	},
-	{
-		quizid: question2id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	},
-	{
-		quizid: question2id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	}
-]
-
-allresults = {
-	firststepresults: resultsofastep,
-	secondstepresults: resultsofanotherstep
-} -->
+ -->
