@@ -1,5 +1,6 @@
 myApp.factory('gradesfactory', function() {
 //this factory will get the lesson results and give the total grade
+//currenlty being called by playController
 
 grades ={};
 
