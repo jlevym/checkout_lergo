@@ -13,5 +13,63 @@
         
 				<a class= "btn btn-primary btn-block"    href="#/" ><h3>home</h3></a>
 			</div>
-			<!-- <div style="height: 30px"></div>  --> <!-- to seperate between the rows -->
 
+			<!-- showing the results -->
+		<div ng-repeat = "step in stepresult">
+			<div ng-repeat = "answer in step">
+				this was your answer: <b>{{answer}}</b>
+				</div>
+				</div>
+
+
+				<div ng-repeat = "index in thislesson.steps">
+				index : {{index}}
+				<div ng-repeat = "quizitems in index.quizItems">
+				quizitems : {{quizitems}}
+				</div>
+				</div>
+
+
+				
+<!-- need to change the way report data is gathered so it will have all information:
+
+resultsofastep = [
+	 {
+		quizid: question1id,
+		quizresult: correct / wrong,
+		answer: exact answer given by student
+	},
+	{
+		quizid: question2id,
+		quizresult: correct / wrong,
+		answer: exact answer given by student
+	},
+	{
+		quizid: question2id,
+		quizresult: correct / wrong,
+		answer: exact answer given by student
+	}
+]
+
+resultsofanotherstep = [
+	 {
+		quizid: question1id,
+		quizresult: correct / wrong,
+		answer: exact answer given by student
+	},
+	{
+		quizid: question2id,
+		quizresult: correct / wrong,
+		answer: exact answer given by student
+	},
+	{
+		quizid: question2id,
+		quizresult: correct / wrong,
+		answer: exact answer given by student
+	}
+]
+
+allresults = {
+	firststepresults: resultsofastep,
+	secondstepresults: resultsofanotherstep
+} -->
