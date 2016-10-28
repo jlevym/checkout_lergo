@@ -1,4 +1,4 @@
-myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions', '$routeParams', 'lessonFactory', 'questionFactory', '$timeout', '$sce',  function($scope, lergoData, lergoQuestions, $routeParams, lessonFactory , questionFactory, $timeout, $sce) {
+myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions', '$routeParams', 'lessonFactory', 'questionFactory', '$timeout', '$sce', 'gradesfactory',  function($scope, lergoData, lergoQuestions, $routeParams, lessonFactory , questionFactory, $timeout, $sce, gradesfactory) {
 
 	// need this to allow playing external videos
 	$scope.trustSrc = function(src) {
@@ -76,7 +76,8 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 					console.log($scope.stepresult);
 					quizresultsarray =  [];
 					console.log('lesson is over'); // what to do when lesson is over
-					grade();
+				/*	grade();*/ // run the function grade() to calculate the final grade
+					$scope.finalgrade = grades.grade(finalArray);
 					return 'report';
 				}
 				
@@ -88,17 +89,17 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 			$timeout($scope.increment, 1000); // moves to the next question after timeout time	
 			   	if(value === 'True'){ // this is the option for True / False
 			   		$scope.result = 'good job';
-			   		quizresultsarray.push($scope.result);
+			   		quizresultsarray.push(1);
 			   		/*console.log(quizresultsarray);
 		     		console.log(value);*/
 			   	}else if (value.checked){ // these are the options for multipleChoices
 			   		$scope.result = 'good job';
-			   		quizresultsarray.push($scope.result);
+			   		quizresultsarray.push(1);
 			   		/*console.log(quizresultsarray);
 		     		console.log(value.checked);*/
 			   	}else{
 			   		$scope.result = 'sorry, that is incorrect' ;
-			   		quizresultsarray.push($scope.result);
+			   		quizresultsarray.push(0);
 			   		/*console.log(quizresultsarray);
 			   		console.log(value);*/
 	   	}
@@ -106,7 +107,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 
 		// get the grade
 		var finalArray = $scope.stepresult; // all the results from the lesson
-		var grade =function () {
+		/*var grade =function () {
 			var totalquestions = 0;
 			var totalcorrect = 0;
 			var totalwrong = 0;
@@ -117,7 +118,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 					console.log(answer) // should be zero the first time
 					totalquestions++ ;
 					console.log(totalquestions);
-					if(finalArray[step][answer] === 'good job') {
+					if(finalArray[step][answer] === 1) {
 						console.log(finalArray[step][answer]);
 						totalcorrect++;
 					}else {
@@ -128,10 +129,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 			var grade = 100*totalcorrect/totalquestions;
 			$scope.finalgrade = grade.toString();
 			console.log($scope.finalgrade);
-		}
+		}*/
 
-
+		/*$scope.finalgrade = grades.grade(finalArray);*/
 }]);
-
-var num = 15;
-var n = num.toString();
