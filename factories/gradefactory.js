@@ -4,7 +4,7 @@ myApp.factory('gradesfactory', function() {
 
 grades ={};
 
-		/*var finalArray = $scope.stepresult;*/ // all the results from the lesson
+
 		grades.grade =function (finalArray) {
 			var totalquestions = 0;
 			var totalcorrect = 0;

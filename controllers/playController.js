@@ -51,6 +51,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 								var newArray = $scope.stepresult.concat(arrayresult);
 								$scope.stepresult = newArray ; 
 								console.log($scope.stepresult);
+								console.log($scope.stepresult[0].result);
 								arrayresult = [];
 							}
 							return type;
