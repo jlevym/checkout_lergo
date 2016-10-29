@@ -15,10 +15,11 @@ grades ={};
 					totalquestions++ ;
 					console.log("total amount of questions so far :" + totalquestions);
 					if(finalArray[step].result === 1) {
-						console.log("this should be 1 :" + finalArray[step].result);
+						console.log("correct :" + finalArray[step].result);
 						totalcorrect++;
 					}else {
 						totalwrong++
+						console.log('wrong answer');
 					}
 				/*}*/
 			}
