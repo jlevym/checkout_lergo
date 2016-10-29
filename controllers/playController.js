@@ -5,6 +5,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
     	return $sce.trustAsResourceUrl(src);
   }
 
+
 	// return the lesson with the clicked id
     $scope.questions = qfac.questions; // access to all the questions
    
@@ -102,23 +103,25 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 				   		console.log(arrayresult);
 				   	}
 				   		
-			} // end of new code I want to test
+			} 
 
+	$scope.show = 'hide';	
+			
+	$scope.getInfo =function () {
+				$scope.show = 'show';
+				$scope.stepresult.forEach(function(obj) {
+					obj.text = aquestion(obj.quid).question;
+					console.log(obj.text);
+				})
+				console.log('was this function called ?');
+			}
 
-
-	
 }]);
 
 //this needs to be moved into it's directive - questionDirective.js
 myApp.directive('reportQuestion', function(){
-
 	return {
-
-		templateUrl: 'directives/views/report.html',
-		replace: true
-		
-
-			
+		templateUrl: 'directives/views/report.html'
 		}
 
 });

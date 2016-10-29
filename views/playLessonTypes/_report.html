@@ -10,11 +10,13 @@
 			  		<div class="media-heading"> <h3>GREAT JOB!</h3>  <b style="color: blue" >{{lessonObj.name | limitTo: 50}}</b><br><span style="color: black"><h1>{{finalgrade | limitTo: 4 }}  % </h1> </span> </div>
 			  </div>
 			  <div style="height: 200px"></div>
-        
+	        	
+				<a ng-if = "show === 'hide'" class= "btn btn-primary btn-block"    href="" ng-click="getInfo()" ><h3>do you want to see your report?</h3></a>
 				<a class= "btn btn-primary btn-block"    href="#/" ><h3>home</h3></a>
 			</div>
-
-			<report-question></report-question>
+		
+			<div report-question ng-if = "show === 'show'" ></div>
+			
 
 		
 			

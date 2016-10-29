@@ -1,10 +1,21 @@
-	<div ng-repeat="obj in stepresult">
-			<!-- need to make a directive here to get the question -->
 
-		
-			result: {{obj.result}} 
-			your answer : {{obj.answer}}
-			the question id : {{obj.quid}}
-			<br>	
-			</div>
-			
+  <div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>question</th>
+      <th>your answer</th>
+      <th>your score</th>
+    </tr>
+  </thead>
+  <tbody ng-repeat="obj in stepresult">
+    <tr>
+      <th scope="row">{{$index}}</th>
+      <td>{{obj.text}}</td>
+      <td>{{obj.answer}}</td>
+      <td>{{obj.result}}</td>
+    </tr>
+  </tbody>
+  </table>
+</div>
