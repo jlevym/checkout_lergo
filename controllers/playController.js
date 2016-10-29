@@ -41,15 +41,16 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 							return 'video';
 						}
 						else if (thistype.type === 'quiz') {
-							$scope.quizItem = thistype.quizItems[quizindex];
+							$scope.quizItem = thistype.quizItems[quizindex]; //$scope.quizItem is the id of the question
 							$scope.question1=aquestion($scope.quizItem);// will return the question from questionsfactory
-							var type = $scope.question1.type;
+							var type = $scope.question1.type; // finds what kind of quiz it is 
 							quizindex++;
 							if (quizindex < thistype.quizItems.length) { // tests if we are at the end of the array of questions
 								index = index-1; // if not at the end, we want to stay on the same step
 							}else{ // the question array for this step is over
-								$scope.stepresult[index] = quizresultsarray ; // key of each array is the index number
-								quizresultsarray =  {};
+								$scope.stepresult[index] = arrayresult ; // key of each array is the index number
+								console.log($scope.stepresult);
+								arrayresult = [];
 							}
 							return type;
 
@@ -57,51 +58,44 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 							return 'need more definitions'; // other than quiz or video so far
 						}	
 				}else{
-					$scope.stepresult[index] = quizresultsarray ; //add data to the key 'index' value
-					quizresultsarray =  [];
+					$scope.stepresult[index] = arrayresult ; //add data to the key 'index' value
+					arrayresult =  [];
 					console.log('lesson is over'); // what to do when lesson is over
+					console.log($scope.stepresult);
 					$scope.finalgrade = grades.grade(finalArray); // calculated in gradefactory. 
 					return 'report';
 				}
 				
 	}
-		quizresultsarray = {}; //the array that gives the results for each step
-    	/*checks the values of the radio button and answer if true / false*/
-	   $scope.newValue1 = function(value) {
-			$scope.isDisabled = true;
-			$timeout($scope.increment, 1000); // moves to the next question after timeout time	
-			   	if(value === 'True'){ // this is the option for True / False
-			   		$scope.result = 'good job';
-			   		quizresultsarray.push(1);
-			   	}else if (value.checked){ // these are the options for multipleChoices
-			   		$scope.result = 'good job';
-			   		quizresultsarray.push(1);
-			   	}else{
-			   		$scope.result = 'sorry, that is incorrect' ;
-			   		quizresultsarray.push(0);
-	   			}
-		}
-
+		quizresult = {}; //the array that gives the results for each step
+		arrayresult =[];
 		/*this is the new code i want to test*/
     	/*checks the values of the radio button and answer if true / false*/
   			$scope.newValue = function(value) {
+  				quizresult=[];
 			$scope.isDisabled = true;
 			$timeout($scope.increment, 1000); // moves to the next question after timeout time	
 			   	if(value === 'True'){ // this is the option for True / False
 			   		$scope.result = 'good job';
-			   		quizresultsarray.quid = $scope.quizItem;
-			   		quizresultsarray.result= 1;			   		
-			   		quizresultsarray.answer= value;
+			   		quizresult.quid = $scope.quizItem;
+			   		quizresult.result= 1;			   		
+			   		quizresult.answer= value;
+			   		arrayresult.push(quizresult);
+			   		console.log(arrayresult);
 			   	}else if (value.checked){ // these are the options for multipleChoices
 			   		$scope.result = 'good job';
-			   		quizresultsarray.quid = $scope.quizItem;
-			   		quizresultsarray.result= 1;
-			   		quizresultsarray.answer= value;
+			   		quizresult.quid = $scope.quizItem;
+			   		quizresult.result= 1;
+			   		quizresult.answer= value;
+			   		arrayresult.push(quizresult);
+			   		console.log(arrayresult);
 			   	}else{
 			   		$scope.result = 'sorry, that is incorrect' ;
-			   		quizresultsarray.quid = $scope.quizItem;
-			   		quizresultsarray.result= 0;
-			   		quizresultsarray.answer= value;
+			   		quizresult.quid = $scope.quizItem;
+			   		quizresult.result= 0;
+			   		quizresult.answer= value;
+			   		arrayresult.push(quizresult);
+			   		console.log(arrayresult);
 			   	}
 			   		
 		} // end of new code I want to test
@@ -115,45 +109,3 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 		}*/
 }]);
 
-/*need to change the way report data is gathered so it will have all information:
-
-resultsofastep = [
-	 {
-		quizid: question1id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	},
-	{
-		quizid: question2id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	},
-	{
-		quizid: question2id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	}
-]
-
-resultsofanotherstep = [
-	 {
-		quizid: question1id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	},
-	{
-		quizid: question2id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	},
-	{
-		quizid: question2id,
-		quizresult: correct / wrong,
-		answer: exact answer given by student
-	}
-]
-
-allresults = {
-	firststepresults: resultsofastep,
-	secondstepresults: resultsofanotherstep
-}*/
