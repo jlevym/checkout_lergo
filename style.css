@@ -1,6 +1,10 @@
 
 
 .panel { /*makes all the bootstrap panels this color*/
-	background-color: #89b1bc;
+	background-color: #42bcf4;
 
+}
+.navbar-default {
+  background-color:#42bcf4;  /*@navbar-default-bg;*/
+  border-color: @navbar-default-border;
 }
