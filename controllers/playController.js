@@ -65,7 +65,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 					arrayresult =  [];
 					console.log('lesson is over'); // what to do when lesson is over
 					console.log($scope.stepresult);
-					$scope.finalgrade = grades.grade(finalArray); // calculated in gradefactory. 
+					$scope.finalgrade = grades.grade($scope.stepresult); // calculated in gradefactory. 
 					return 'report';
 				}
 				
@@ -103,12 +103,5 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 				   		
 			} // end of new code I want to test
 	
-
-
-		var finalArray = $scope.stepresult; // all the results from the lesson
-		// the grade for all the questions will be calculated in gradefactory
-		/*$scope.question(id)=function (id) {
-			return aquestion(id);
-		}*/
 }]);
 

@@ -9,20 +9,18 @@ grades ={};
 			var totalquestions = 0;
 			var totalcorrect = 0;
 			var totalwrong = 0;
+			console.log(finalArray);
 			for (step in finalArray) {
-				console.log(step); // should be zero the first time
-				for(answer in finalArray[step]) {
-					console.log(finalArray[step]); // should be good job
-					console.log(answer) // should be zero the first time
+				console.log("array number :" + step); 
 					totalquestions++ ;
-					console.log(totalquestions);
-					if(finalArray[step][answer] === 1) {
-						console.log(finalArray[step][answer]);
+					console.log("total amount of questions so far :" + totalquestions);
+					if(finalArray[step].result === 1) {
+						console.log("this should be 1 :" + finalArray[step].result);
 						totalcorrect++;
 					}else {
 						totalwrong++
 					}
-				}
+				/*}*/
 			}
 			var grade = 100*totalcorrect/totalquestions;
 			var finalgrade = grade.toString();
