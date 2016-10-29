@@ -54,7 +54,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 								arrayresult = [];
 							}
 							return type;
-							var newArray = arrayA.concat(arrayB);
+							var newArray = arrayA.concat(arrayB); // adds the objects to the array
 
 						}else{ // neither video nor quiz
 							return 'need more definitions'; // other than quiz or video so far
