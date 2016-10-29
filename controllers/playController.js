@@ -18,7 +18,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	$scope.isDisabled = false; // allows the user to click on the answer
 	$scope.result = 'please choose an answer'; // toggles between choose an answer or the result of the quiz (correct / not correct)
 	$scope.options = '';
-	$scope.stepresult = {};
+	$scope.stepresult = [];
 
 	// define and set variables everytime increment is called. 
 	$scope.increment = function() {
@@ -48,17 +48,20 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 							if (quizindex < thistype.quizItems.length) { // tests if we are at the end of the array of questions
 								index = index-1; // if not at the end, we want to stay on the same step
 							}else{ // the question array for this step is over
-								$scope.stepresult[index] = arrayresult ; // key of each array is the index number
+								var newArray = $scope.stepresult.concat(arrayresult);
+								$scope.stepresult = newArray ; 
 								console.log($scope.stepresult);
 								arrayresult = [];
 							}
 							return type;
+							var newArray = arrayA.concat(arrayB);
 
 						}else{ // neither video nor quiz
 							return 'need more definitions'; // other than quiz or video so far
 						}	
 				}else{
-					$scope.stepresult[index] = arrayresult ; //add data to the key 'index' value
+					var newArray = $scope.stepresult.concat(arrayresult);
+					$scope.stepresult = newArray ; 
 					arrayresult =  [];
 					console.log('lesson is over'); // what to do when lesson is over
 					console.log($scope.stepresult);
@@ -73,32 +76,32 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
     	/*checks the values of the radio button and answer if true / false*/
   			$scope.newValue = function(value) {
   				quizresult=[];
-			$scope.isDisabled = true;
-			$timeout($scope.increment, 1000); // moves to the next question after timeout time	
-			   	if(value === 'True'){ // this is the option for True / False
-			   		$scope.result = 'good job';
-			   		quizresult.quid = $scope.quizItem;
-			   		quizresult.result= 1;			   		
-			   		quizresult.answer= value;
-			   		arrayresult.push(quizresult);
-			   		console.log(arrayresult);
-			   	}else if (value.checked){ // these are the options for multipleChoices
-			   		$scope.result = 'good job';
-			   		quizresult.quid = $scope.quizItem;
-			   		quizresult.result= 1;
-			   		quizresult.answer= value;
-			   		arrayresult.push(quizresult);
-			   		console.log(arrayresult);
-			   	}else{
-			   		$scope.result = 'sorry, that is incorrect' ;
-			   		quizresult.quid = $scope.quizItem;
-			   		quizresult.result= 0;
-			   		quizresult.answer= value;
-			   		arrayresult.push(quizresult);
-			   		console.log(arrayresult);
-			   	}
-			   		
-		} // end of new code I want to test
+				$scope.isDisabled = true;
+				$timeout($scope.increment, 1000); // moves to the next question after timeout time	
+				   	if(value === 'True'){ // this is the option for True / False
+				   		$scope.result = 'good job';
+				   		quizresult.quid = $scope.quizItem; // the question id
+				   		quizresult.result= 1;			   // 1 = correct		
+				   		quizresult.answer= value.label;		   // the answer given
+				   		arrayresult.push(quizresult);		// arrayresult holds the objects in an array
+				   		console.log(arrayresult);
+				   	}else if (value.checked){ // these are the options for multipleChoices
+				   		$scope.result = 'good job';
+				   		quizresult.quid = $scope.quizItem;
+				   		quizresult.result= 1;
+				   		quizresult.answer= value.label;
+				   		arrayresult.push(quizresult);
+				   		console.log(arrayresult);
+				   	}else{
+				   		$scope.result = 'sorry, that is incorrect' ;
+				   		quizresult.quid = $scope.quizItem;
+				   		quizresult.result= 0;
+				   		quizresult.answer= value.label;
+				   		arrayresult.push(quizresult);
+				   		console.log(arrayresult);
+				   	}
+				   		
+			} // end of new code I want to test
 	
 
 
