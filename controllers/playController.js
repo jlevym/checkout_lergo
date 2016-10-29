@@ -83,7 +83,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 				   		$scope.result = 'good job';
 				   		quizresult.quid = $scope.quizItem; // the question id
 				   		quizresult.result= 1;			   // 1 = correct		
-				   		quizresult.answer= value.label;		   // the answer given
+				   		quizresult.answer= value.label;
 				   		arrayresult.push(quizresult);		// arrayresult holds the objects in an array
 				   		console.log(arrayresult);
 				   	}else if (value.checked){ // these are the options for multipleChoices
@@ -103,6 +103,23 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 				   	}
 				   		
 			} // end of new code I want to test
+
+
+
 	
 }]);
+
+//this needs to be moved into it's directive - questionDirective.js
+myApp.directive('reportQuestion', function(){
+
+	return {
+
+		templateUrl: 'directives/views/report.html',
+		replace: true
+		
+
+			
+		}
+
+});
 
