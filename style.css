@@ -5,6 +5,6 @@
 
 }
 .navbar-default {
-  background-color:#42bcf4;  /*@navbar-default-bg;*/
+  background-color: cyan;  /*@navbar-default-bg;*/
   border-color: @navbar-default-border;
 }
