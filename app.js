@@ -12,10 +12,10 @@ myApp.config(function($routeProvider) {
   	templateUrl: "views/playLessonTypes/playlesson.html",
   	controller: "playLessonController"
   })
-   .when("/one/:id", {
+  /* .when("/one/:id", {
   	templateUrl: "views/onelesson.html",
   	controller: "oneLessonController"
-  })
+  })*/
   .when("/it", {
     templateUrl : "views/it.html"
   })
