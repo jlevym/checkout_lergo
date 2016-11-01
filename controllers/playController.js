@@ -11,6 +11,15 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
    
 
    	var id = $routeParams.id;  // id of the lesson we want to play
+
+   	//reportid = the value passed in for the report from invit
+   	var reportid = $routeParams.reportid || '0'; //  when we have an invite or not
+   	console.log(reportid);
+
+
+
+
+
 	$scope.thislesson = alesson(id); // this sends the request for one lesson from lessonFactory
 	$scope.lessonObj = $scope.thislesson;
    
@@ -61,15 +70,15 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 						}else{ // neither video nor quiz
 							return 'need more definitions'; // other than quiz or video so far
 						}	
-				}else{
-					var newArray = $scope.stepresult.concat(arrayresult);
-					$scope.stepresult = newArray ; 
-					arrayresult =  [];
-					console.log('lesson is over'); // what to do when lesson is over
-					console.log($scope.stepresult);
-					$scope.finalgrade = grades.grade($scope.stepresult); // calculated in gradefactory. 
-					return 'report';
-				}
+					}else{
+						var newArray = $scope.stepresult.concat(arrayresult);
+						$scope.stepresult = newArray ; 
+						arrayresult =  [];
+						console.log('lesson is over'); // what to do when lesson is over
+						console.log($scope.stepresult);
+						$scope.finalgrade = grades.grade($scope.stepresult); // calculated in gradefactory. 
+						return 'report';
+					}
 				
 	}
 		quizresult = {}; //the array that gives the results for each step
@@ -126,3 +135,23 @@ myApp.directive('reportQuestion', function(){
 
 });
 
+/*This is what needs to be implemented for invites:
+//mongodb collection: invites  		// one invitation per class
+student invite = {
+	report_id:			'id we get from mongodb or make ourselves'
+	invitee: 			'teachers names',
+	class_identifier: 	'3c',
+	students: 			[david, cecil, graham, peter],
+	lesson_id: 			'lessonid'
+}
+
+//mongodb collection: reports 		// one report per student
+student report ={					// what needs to be saved when the student does the lesson
+	report_id: 				'report id from invite',
+	student_identifier:		'david',
+	lesson response: 		[{quid1: 'response1'}, {quid2: 'response2'},  {quid3: 'response3'}, {quid4: 'response4'},
+							 {quid5: 'response5'}]
+
+
+}
+*/
