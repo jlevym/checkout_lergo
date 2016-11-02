@@ -83,8 +83,8 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 	}
 		quizresult = {}; //the array that gives the results for each step
 		arrayresult =[];
-		/*this is the new code i want to test*/
     	/*checks the values of the radio button and answer if true / false*/
+    	// need to check the different options as per the type of question
   			$scope.newValue = function(value) {
   				quizresult=[];
 				$scope.isDisabled = true;
