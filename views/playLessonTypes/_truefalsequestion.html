@@ -16,7 +16,8 @@
 
 
 			<div class="col-md-10">
-				<h1 style="padding-left: 50px">{{question1.question}}</h1><!-- style="padding-left: 50px" -->
+				<h1 style="padding-left: 50px">{{question1.question}}</h1>
+				<br>
 			</div>
 
 		</div>
@@ -25,13 +26,15 @@
 	      <div class="row">
 	      <div class="col-xs-10 col-xs-offset-3">
 	        <div class="form-check">
-	          <label class="form-check-label">
-	            <input  class="form-check-input"  type="radio" ng-model="tfoption" id="gridRadios1" value='True' ng-change='newValue(tfoption)'ng-disabled="isDisabled" >
+	          <label class="form-check-label btn btn-primary btn-lg">
+	            <input  class="form-check-input "  type="radio" ng-model="tfoption" id="gridRadios1" value='True' ng-change='newValue(tfoption)'ng-disabled="isDisabled" >
 	             True 
 	          </label>
 	        </div>
+	        <br>
+	        <br>
 	        <div class="form-check">
-	          <label class="form-check-label">
+	          <label class="form-check-label btn btn-primary btn-lg">
 	            <input class="form-check-input"  type="radio" ng-model="tfoption" id="gridRadios2" value= ''ng-change='newValue(tfoption)' ng-disabled="isDisabled">
 	           False
 	          </label>
