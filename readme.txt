@@ -5,3 +5,5 @@
 3. I was missing the script for bootstrap. I need to get a later version. - the older version puts the writting below the image in the bootstrap media component
 4. to activate a function when using bootstrap radio buttons, use ng-change='newValue(option) in the html and call the function in the controller. (passing in the option.) Some angular features do not work when you use the bootstrap binding
 saving data for reports will just be an array of objects: each object will have the question id, so to get the results, play the lesson and fill in the data by using the report data via question id
+bootstrap full width div; see http://stackoverflow.com/questions/24049467/how-to-create-a-100-screen-width-div-inside-a-container-in-bootstrap
+fullscreen bootstrap modal https://codepen.io/yewnork/pen/Kpaqeq

@@ -32,22 +32,32 @@ view modal -->
       <!-- body -->
       <div class="modal-body">
         <h2>1. Modal sub-title</h2>
-
-	    <form >
-                <div>
-                    <img src="images/transparent-beta.png">
-                </div>
-                <div>
-                    <input class="username">
-                </div>
-                <br>
-                <div>
-                    <button class="btn btn-default pin-button">Enter</button>
-                </div>
-
-            </form>
+ <form >
+	    <fieldset class="form-group ">
+	      <div class="row">
+	      <div class="col-xs-10 col-xs-offset-3">
+	        <div class="form-check">
+	          <label class="form-check-label btn btn-primary btn-lg">
+	            <input  class="form-check-input "  type="radio" ng-model="tfoption" id="gridRadios1" value='True' ng-change='newValue(tfoption)'ng-disabled="isDisabled" >
+	             True 
+	          </label>
+	        </div>
+	        <br>
+	        <br>
+	        <div class="form-check">
+	          <label class="form-check-label btn btn-primary btn-lg">
+	            <input class="form-check-input"  type="radio" ng-model="tfoption" id="gridRadios2" value= ''ng-change='newValue(tfoption)' ng-disabled="isDisabled">
+	           False
+	          </label>
+	        </div>
+	      </div>
+	      </div>
+	       <div class= "col-xs-10 col-xs-offset-1 " >
+		  <h1 style="border-style: solid; background: #42d7f4; border-width: 2px; border-color: blue ; text-align: center"  >{{result}}</h1>
+		  </div>
+	    </fieldset>
 		 
-		
+		  </form>
       <!--   <h2>2. Modal sub-title</h2>
 
         <p>The last word drumguish irish flag, hurricane, brandy manhattan. Lemon drop, pulteney fleischmann's seven and seven irish flag pisco sour metaxas, hayride, bellini. French 75 wolfram christian brothers, calvert painkiller, horse's neck old bushmill's gin pahit. Monte alban glendullan, edradour redline cherry herring anisette godmother, irish flag polish martini glen spey. Abhainn dearg bloody mary amaretto sour, ti punch black cossack port charlotte tequila slammer? Rum swizzle glen keith j & b sake bomb harrogate nights 7 crown! Hairy virgin tomatin lord calvert godmother wolfschmitt brass monkey aberfeldy caribou lou. Macuá, french 75 three wise men.</p>

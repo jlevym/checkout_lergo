@@ -1,0 +1,53 @@
+<!-- place to hold the the true/false question template -->
+<!-- this is a ng-include from playlesson.html -->
+<!-- using the bottom of the page from playcontroller -->
+
+
+	<div class="panel panel-default">
+		<div class="row">
+			  
+		<!-- this demonstrates Bootstrap ability to identify the size of the screen -->
+	<!-- 	<div class="col-xs-12 " style="text-align: center">
+  <h1 class="visible-xs">This text is shown only on an EXTRA SMALL screen.</h1>
+  <h1 class="visible-sm">This text is shown only on a SMALL screen.</h1>
+  <h1 class="visible-md">This text is shown only on a MEDIUM screen.</h1>
+  <h1 class="visible-lg">This text is shown only on a LARGE screen.</h1>
+		</div> -->
+
+
+			<div class="col-md-10">
+				<h1 style="padding-left: 50px">{{question1.question}}</h1>
+				<br>
+			</div>
+
+		</div>
+	  <form >
+	    <fieldset class="form-group ">
+	      <div class="row">
+	      <div class="col-xs-10 col-xs-offset-3">
+	        <div class="form-check">
+	          <label class="form-check-label btn btn-primary btn-lg">
+	            <input  class="form-check-input "  type="radio" ng-model="tfoption" id="gridRadios1" value='True' ng-change='newValue(tfoption)'ng-disabled="isDisabled" >
+	             True 
+	          </label>
+	        </div>
+	        <br>
+	        <br>
+	        <div class="form-check">
+	          <label class="form-check-label btn btn-primary btn-lg">
+	            <input class="form-check-input"  type="radio" ng-model="tfoption" id="gridRadios2" value= ''ng-change='newValue(tfoption)' ng-disabled="isDisabled">
+	           False
+	          </label>
+	        </div>
+	      </div>
+	      </div>
+	       <div class= "col-xs-10 col-xs-offset-1 " >
+		  <h1 style="border-style: solid; background: #42d7f4; border-width: 2px; border-color: blue ; text-align: center"  >{{result}}</h1>
+		  </div>
+	    </fieldset>
+		 
+		  </form>
+		  </div>
+	</div>
+
+
