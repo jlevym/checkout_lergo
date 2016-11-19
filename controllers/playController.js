@@ -56,9 +56,12 @@ myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 
                              $http.get('http://www.lergo.org/backend/questions/'+$scope.quizItem)
                                     .success(function(data) {
                                         $scope.question1 = data;
-                                        console.log(data);
+                                 console.log('inside get for questions');
+                                        console.log($scope.question1);
+                                        console.log($scope.question1.question);
                                         var type = $scope.question1.type; // finds what kind of quiz it is 
                                         console.log(type);
+                                        return type;
                                     quizindex++;
                                     if (quizindex < thistype.quizItems.length) { // tests if we are at the end of the array of questions
                                         index = index-1; // if not at the end, we want to stay on the same step
@@ -69,7 +72,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 
                                         console.log($scope.stepresult[0].result);
                                         arrayresult = [];
                                     }
-                                    return type;
+                                    
                                     var newArray = arrayA.concat(arrayB); // adds the objects to the array
                                         
 
