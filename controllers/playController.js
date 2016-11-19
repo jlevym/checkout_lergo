@@ -136,8 +136,8 @@ myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 
 	$scope.getInfo =function () {// for _report.html
 				$scope.show = 'show';
 				$scope.stepresult.forEach(function(obj) {
-					obj.text = aquestion(obj.quid).question;
-					console.log(obj.text);
+					//obj.text = aquestion(obj.quid).question;
+					console.log("looks like we didn't need this - so it was commented out");
 				})
 				console.log('was this function called ?');
 			}
