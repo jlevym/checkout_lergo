@@ -14,8 +14,8 @@
 			  		</div>
 
 			  </div>
-			  <div ng-if="options !== ''" class="media-body">
-			  		<div class="media-heading"> <p> {{$index}}  <b style="color: blue" >{{lessonObj.name | limitTo: 50}}</b><br><span style="color: black">{{lessonObj.description | limitTo: 150}}</span> </p>
+			  <div ng-if="options !== ''" class="media-body"> <!--limit the amount of text on the landing page-->
+			  		<div class="media-heading"> <p> {{$index}}  <b style="color: blue" >{{lessonObj.name | limitTo: 50}}</b><br><span style="color: black">{{lessonObj.description | limitTo: 90}}</span> </p>
 			  		</div>
 
 			  </div>
