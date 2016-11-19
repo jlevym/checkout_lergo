@@ -1,4 +1,4 @@
-myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions', '$routeParams', 'lessonFactory', 'questionFactory', '$timeout', '$sce', 'gradesfactory','$http',  function($scope, lergoData, lergoQuestions, $routeParams, lessonFactory , questionFactory, $timeout, $sce, gradesfactory, $http) {
+myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 'lessonFactory',  '$timeout', '$sce', 'gradesfactory','$http',  function($scope, lergoData,  $routeParams, lessonFactory ,  $timeout, $sce, gradesfactory, $http) {
 
 	// need this to allow playing external videos
 	$scope.trustSrc = function(src) {
@@ -7,7 +7,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 
 
 	// return the lesson with the clicked id
-    $scope.questions = qfac.questions; // access to all the questions
+    //$scope.questions = qfac.questions; // access to all the questions
    
 
    	var id = $routeParams.id;  // id of the lesson we want to play
@@ -60,21 +60,37 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
 						}
 						else if (thistype.type === 'quiz') {
 							$scope.quizItem = thistype.quizItems[quizindex]; //$scope.quizItem is the id of the question
-							$scope.question1=aquestion($scope.quizItem);// will return the question from questionsfactory
-							var type = $scope.question1.type; // finds what kind of quiz it is 
-							quizindex++;
-							if (quizindex < thistype.quizItems.length) { // tests if we are at the end of the array of questions
-								index = index-1; // if not at the end, we want to stay on the same step
-							}else{ // the question array for this step is over
-								var newArray = $scope.stepresult.concat(arrayresult);
-								$scope.stepresult = newArray ; 
-								console.log($scope.stepresult);
-								console.log($scope.stepresult[0].result);
-								arrayresult = [];
-							}
-							return type;
-							var newArray = arrayA.concat(arrayB); // adds the objects to the array
+                            
+							//$scope.question1=aquestion($scope.quizItem);// will return the question from questionsfactory
+                            // implement lergo api
+                             $http.get('http://www.lergo.org/backend/questions/'+$scope.quizItem)
+                                    .success(function(data) {
+                                        $scope.question1 = data;
+                                        console.log(data);
+                                        var type = $scope.question1.type; // finds what kind of quiz it is 
+                                        console.log(type);
+                                    quizindex++;
+                                    if (quizindex < thistype.quizItems.length) { // tests if we are at the end of the array of questions
+                                        index = index-1; // if not at the end, we want to stay on the same step
+                                    }else{ // the question array for this step is over
+                                        var newArray = $scope.stepresult.concat(arrayresult);
+                                        $scope.stepresult = newArray ; 
+                                        console.log($scope.stepresult);
+                                        console.log($scope.stepresult[0].result);
+                                        arrayresult = [];
+                                    }
+                                    return type;
+                                    var newArray = arrayA.concat(arrayB); // adds the objects to the array
+                                        
 
+                                    })
+                                    .error(function(data) {
+                                        console.log('Error: ' + data);
+                                    }); 
+                            
+                            
+							
+							
 						}else{ // neither video nor quiz
 							return 'need more definitions'; // other than quiz or video so far
 						}	
