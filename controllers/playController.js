@@ -4,19 +4,13 @@ myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 
 	$scope.trustSrc = function(src) {
     	return $sce.trustAsResourceUrl(src);
   }
-
-
-	// return the lesson with the clicked id
-    //$scope.questions = qfac.questions; // access to all the questions
-   
-
    	var id = $routeParams.id;  // id of the lesson we want to play
 
    	//reportid = the value passed in for the report from invit
    	var reportid = $routeParams.reportid || '0'; //  when we have an invite or not
    	console.log(reportid);
 
-     //direct access to lergo api
+     //direct access to lergo api for lessons by id
     $http.get('http://www.lergo.org/backend/lessons/'+id)
         .success(function(data) {
             $scope.thislesson = data;
@@ -25,10 +19,6 @@ myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 
         .error(function(data) {
             console.log('Error: ' + data);
         }); 
-
-
-
-	//$scope.thislesson = alesson(id); // this sends the request for one lesson from lessonFactory
 	$scope.lessonObj = $scope.thislesson;
    
 	var index = '-1';  // index of steps in lesson
@@ -58,11 +48,11 @@ myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 
 							$scope.videourl = complianturl;
 							return 'video';
 						}
-						else if (thistype.type === 'quiz') {
+						else if (thistype.type === 'quiz') {// thistype is the type of next step in lesson
 							$scope.quizItem = thistype.quizItems[quizindex]; //$scope.quizItem is the id of the question
                             
 							//$scope.question1=aquestion($scope.quizItem);// will return the question from questionsfactory
-                            // implement lergo api
+                            // implement lergo api for direct access to questions
                              $http.get('http://www.lergo.org/backend/questions/'+$scope.quizItem)
                                     .success(function(data) {
                                         $scope.question1 = data;
@@ -94,7 +84,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 
 						}else{ // neither video nor quiz
 							return 'need more definitions'; // other than quiz or video so far
 						}	
-					}else{
+					}else{ // !thistype ==> no step at this index
 						var newArray = $scope.stepresult.concat(arrayresult);
 						$scope.stepresult = newArray ; 
 						arrayresult =  [];
@@ -102,9 +92,8 @@ myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 
 						console.log($scope.stepresult);
 						$scope.finalgrade = grades.grade($scope.stepresult); // calculated in gradefactory. 
 						return 'report';
-					}
-				
-	}
+					}		
+	} //end of lessontype
 		quizresult = {}; //the array that gives the results for each step
 		arrayresult =[];
     	/*checks the values of the radio button and answer if true / false*/
