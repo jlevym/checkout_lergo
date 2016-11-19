@@ -61,7 +61,8 @@ myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 
                                         console.log($scope.question1.question);
                                         var type = $scope.question1.type; // finds what kind of quiz it is 
                                         console.log(type);
-                                        return type;
+                                        $scope.options = type;
+                                        //return type;
                                     quizindex++;
                                     if (quizindex < thistype.quizItems.length) { // tests if we are at the end of the array of questions
                                         index = index-1; // if not at the end, we want to stay on the same step
@@ -73,7 +74,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 
                                         arrayresult = [];
                                     }
                                     
-                                    var newArray = arrayA.concat(arrayB); // adds the objects to the array
+                                    //var newArray = arrayA.concat(arrayB); // adds the objects to the array
                                         
 
                                     })
@@ -132,7 +133,7 @@ myApp.controller('playLessonController',['$scope', 'lergoData', '$routeParams', 
 
 	$scope.show = 'hide';	
 			
-	$scope.getInfo =function () {
+	$scope.getInfo =function () {// for _report.html
 				$scope.show = 'show';
 				$scope.stepresult.forEach(function(obj) {
 					obj.text = aquestion(obj.quid).question;
