@@ -5,3 +5,7 @@
 3. I was missing the script for bootstrap. I need to get a later version. - the older version puts the writting below the image in the bootstrap media component
 4. to activate a function when using bootstrap radio buttons, use ng-change='newValue(option) in the html and call the function in the controller. (passing in the option.) Some angular features do not work when you use the bootstrap binding
 saving data for reports will just be an array of objects: each object will have the question id, so to get the results, play the lesson and fill in the data by using the report data via question id
+ for CORS, need to implement this for videos:$scope.trustSrc = function(src) {
+    	return $sce.trustAsResourceUrl(src);
+  } // done, but for Lergo lessons to be get need to add the url for the chrome CORS *//..../*
+  

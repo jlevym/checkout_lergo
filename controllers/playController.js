@@ -1,4 +1,4 @@
-myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions', '$routeParams', 'lessonFactory', 'questionFactory', '$timeout', '$sce', 'gradesfactory',  function($scope, lergoData, lergoQuestions, $routeParams, lessonFactory , questionFactory, $timeout, $sce, gradesfactory) {
+myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions', '$routeParams', 'lessonFactory', 'questionFactory', '$timeout', '$sce', 'gradesfactory','$http',  function($scope, lergoData, lergoQuestions, $routeParams, lessonFactory , questionFactory, $timeout, $sce, gradesfactory, $http) {
 
 	// need this to allow playing external videos
 	$scope.trustSrc = function(src) {
@@ -16,11 +16,19 @@ myApp.controller('playLessonController',['$scope', 'lergoData', 'lergoQuestions'
    	var reportid = $routeParams.reportid || '0'; //  when we have an invite or not
    	console.log(reportid);
 
+     //direct access to lergo api
+    $http.get('http://www.lergo.org/backend/lessons/'+id)
+        .success(function(data) {
+            $scope.thislesson = data;
+            console.log(data);
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        }); 
 
 
 
-
-	$scope.thislesson = alesson(id); // this sends the request for one lesson from lessonFactory
+	//$scope.thislesson = alesson(id); // this sends the request for one lesson from lessonFactory
 	$scope.lessonObj = $scope.thislesson;
    
 	var index = '-1';  // index of steps in lesson
